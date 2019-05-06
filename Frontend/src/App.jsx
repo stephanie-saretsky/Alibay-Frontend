@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Route, Link, BrowserRouter } from "react-router-dom";
 import "./main.css";
 import Login from "./Login.jsx";
 import { connect } from "react-redux";
@@ -21,6 +21,13 @@ class UnconnectedApp extends Component {
   };
 
   renderLogin = () => {
+    if (this.props.login) {
+      return (
+        <div>
+          <Main />
+        </div>
+      );
+    }
     return (
       <div>
         <Login />
@@ -37,6 +44,7 @@ class UnconnectedApp extends Component {
   };
 
   tea = () => {
+    console.log("tea page");
     return (
       <div>
         <Tea />
@@ -45,15 +53,8 @@ class UnconnectedApp extends Component {
   };
 
   render = () => {
-    if (this.props.login) {
-      return (
-        <div>
-          <Main />
-        </div>
-      );
-    }
     return (
-      <div>
+      <BrowserRouter>
         <Route exact={true} path="/coffee" render={this.coffee} />
         <Route exact={true} path="/tea" render={this.tea} />
         <Route exact={true} path="/tea/:tid" render={this.renderTeas} />
@@ -61,7 +62,7 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/signup" render={this.renderSignup} />
         <Route exact={true} path="/login" render={this.renderLogin} />
         <Route exact={true} path="/" render={this.renderLogin} />
-      </div>
+      </BrowserRouter>
     );
   };
 }

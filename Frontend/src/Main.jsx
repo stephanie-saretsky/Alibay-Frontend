@@ -25,12 +25,16 @@ class Main extends Component {
 
   render = () => {
     return (
-      <div>
+      <div className="container">
         <button>
-          <img src={"/public/coffee v1.png"} onClick={this.coffee} />
+          <img
+            className="button"
+            src={"/coffee v1.png"}
+            onClick={this.coffee}
+          />
         </button>
         <button>
-          <img src={"/public/tea v1.png"} onClick={this.tea} />
+          <img className="button" src={"/tea v1.png"} onClick={this.tea} />
         </button>
       </div>
     );

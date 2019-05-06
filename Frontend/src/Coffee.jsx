@@ -37,10 +37,10 @@ class unconnectedCoffee extends Component {
   };
 
   render = () => {
-    console.log("Teas:");
+    console.log("coffees:");
     return (
       <div>
-        <h2>Coffes:</h2>
+        <h2>Coffees:</h2>
         {/* <Search /> */}
         <ul>
           {this.state.coffees.map(coffee => {

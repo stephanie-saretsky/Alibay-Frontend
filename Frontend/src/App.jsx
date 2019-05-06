@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Signup from "./Signup.jsx";
 import Main from "./Main.jsx";
 import Tea from "./Tea.jsx";
+import Coffee from "./Coffee.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {

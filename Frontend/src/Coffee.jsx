@@ -14,8 +14,8 @@ class unconnectedCoffee extends Component {
   }
 
   componentDidMount = () => {
-    console.log("teas rendering");
-    fetch("/tea", {
+    console.log("coffees rendering");
+    fetch("/coffee", {
       method: "GET",
       credentials: "include"
     })
@@ -28,19 +28,11 @@ class unconnectedCoffee extends Component {
       });
   };
 
-  renderItem = () => {
-    return (
-      <div>
-        <Item />
-      </div>
-    );
-  };
-
   render = () => {
     console.log("Teas:");
     return (
       <div>
-        <h2>Coffes:</h2>
+        <h2>Coffees:</h2>
         {/* <Search /> */}
         <ul>
           {this.state.coffees.map(coffee => {

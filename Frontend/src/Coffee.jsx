@@ -29,7 +29,7 @@ class unconnectedCoffee extends Component {
   };
 
   render = () => {
-    console.log("Teas:");
+    console.log("coffees:");
     return (
       <div>
         <h2>Coffees:</h2>

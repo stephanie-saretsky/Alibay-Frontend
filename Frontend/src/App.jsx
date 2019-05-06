@@ -29,27 +29,14 @@ class UnconnectedApp extends Component {
 
   render = () => {
     if (this.props.login) {
-      return (
-        <BrowserRouter>
-          <div>
-            <div>{/* <Main /> */}</div>
-            <div />
-          </div>
-          <Route exact={true} path="/signup" render={this.renderSignup} />
-          <Route exact={true} path="/login" render={this.renderLogin} />
-        </BrowserRouter>
-      );
+      return <div>{/* <Main /> */}</div>;
     }
     return (
-      <BrowserRouter>
-        <div>
-          <div>
-            <Login />
-          </div>
-        </div>
+      <div>
         <Route exact={true} path="/signup" render={this.renderSignup} />
         <Route exact={true} path="/login" render={this.renderLogin} />
-      </BrowserRouter>
+        <Route exact={true} path="/" render={this.renderLogin} />
+      </div>
     );
   };
 }

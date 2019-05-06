@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import "./main.css";
+import Login from "./Login.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <section>
-            {" "}
             <Login />
           </section>
           <Route exact={true} path="/login" render={this.handleLogin} />

@@ -7,22 +7,6 @@ class Main extends Component {
     super();
   }
 
-  coffee = () => {
-    return (
-      <div>
-        <Coffee />
-      </div>
-    );
-  };
-
-  tea = () => {
-    return (
-      <div>
-        <Tea />
-      </div>
-    );
-  };
-
   render = () => {
     return (
       <div className="container">

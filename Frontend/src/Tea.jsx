@@ -31,7 +31,7 @@ class unconnectedTea extends Component {
   renderItem = () => {
     return (
       <div>
-        <Item />
+        <TeaDetails />
       </div>
     );
   };

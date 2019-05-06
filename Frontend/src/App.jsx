@@ -12,7 +12,6 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <section>
-            {" "}
             <Login />
           </section>
           <Route exact={true} path="/login" render={this.handleLogin} />

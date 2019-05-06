@@ -1,20 +1,32 @@
 import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
-import Search from "./search.jsx";
-
-let renderRe = routerData => {
-  let reviewId = routerData.match.params.rid;
-  let candidatesRe = reviewers.filter(reviewer => {
-    return reviewId === reviewer.id;
-  });
-  return <Reviewer reviewer={candidatesRe[0]} />;
-};
+import { connect } from "react-redux";
+// import Search from "./search.jsx";
 
 class unconnectedTea extends Component {
   constructor() {
     super();
+    this.state = {
+      teas: [],
+      searchInput: ""
+    };
   }
+
+  componentDidMount = () => {
+    console.log("teas rendering");
+    fetch("/tea", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        this.setState({ teas: body });
+      });
+  };
 
   renderItem = () => {
     return (
@@ -28,18 +40,16 @@ class unconnectedTea extends Component {
     console.log("Teas:");
     return (
       <div>
-        <Search />
+        {/* <Search /> */}
         <ul>
           {this.props.teas.map(tea => {
             return (
               <div>
                 <h3>{tea.name}</h3>
                 <p>{tea.price}</p>
-                <p>{tea.desc}</p>
                 <p>
-                  <Link>{tea.seller}</Link>
+                  <Link to={"/tea/" + tea.id}>More details</Link>}
                 </p>
-                <p>{tea.reviews}</p>
               </div>
             );
           })}
@@ -50,11 +60,5 @@ class unconnectedTea extends Component {
   };
 }
 
-let mapStateToProp = st => {
-  return {
-    teas: st.teas
-  };
-};
-
-let Tea = connect(mapStateToProp)(unconnectedTea);
+let Tea = connect()(unconnectedTea);
 export default Tea;

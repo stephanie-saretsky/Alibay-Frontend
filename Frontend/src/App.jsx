@@ -36,17 +36,18 @@ class UnconnectedApp extends Component {
       );
     }
     return (
-      <>
+      <div>
+        <Route exact={true} path="/tea/:tid" render={this.renderTeas} />
         <Route exact={true} path="/signup" render={this.renderSignup} />
         <Route exact={true} path="/login" render={this.renderLogin} />
         <Route exact={true} path="/" render={this.renderLogin} />
-      </>
+      </div>
     );
   };
 }
 
 let mapStateToProps = st => {
-  return { login: st.login };
+  return { login: st.login, signup: st.signup };
 };
 
 let App = connect(mapStateToProps)(UnconnectedApp);

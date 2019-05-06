@@ -24,6 +24,29 @@ class UnconnectedLogin extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("login form submitted");
+    data.append("username", this.state.username);
+    data.append("password", this.state.password);
+    fetch("/login", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (!body.success) {
+          alert("login failed");
+          return;
+        }
+        this.props.dispatch({
+          type: "login-success"
+        });
+        return;
+      });
+
+    this.setState({ username: "", password: "" });
   };
 
   render = () => {
@@ -37,7 +60,10 @@ class UnconnectedLogin extends Component {
           <input type="text" onChange={this.handlePasswordChange} />
           <input type="submit" />
         </form>
-        <Link />
+        <p>
+          You dont have any account yet, Please
+          <Link to={"/signup/"}>Signup here! </Link>
+        </p>
       </div>
     );
   };

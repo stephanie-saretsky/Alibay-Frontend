@@ -8,22 +8,54 @@ class UnconnectedApp extends Component {
     super();
   }
 
+  renderSignup = () => {
+    return (
+      <div>
+        <Signup />
+      </div>
+    );
+  };
+
+  renderLogin = () => {
+    return (
+      <div>
+        <Login />
+      </div>
+    );
+  };
+
   render = () => {
+    if (this.props.login) {
+      return (
+        <BrowserRouter>
+          <div>
+            <div>
+              <Search />
+              <Item />
+            </div>
+            <div />
+          </div>
+          <Route exact={true} path="/signup" render={this.renderSignup} />
+          <Route exact={true} path="/login" render={this.renderLogin} />
+        </BrowserRouter>
+      );
+    }
     return (
       <BrowserRouter>
         <div>
-          <section>
+          <div>
             <Login />
-          </section>
-          <Route exact={true} path="/login" render={this.handleLogin} />
-          <Route exact={true} path="/signup" render={this.handleSignup} />
+          </div>
         </div>
+        <Route exact={true} path="/signup" render={this.renderSignup} />
+        <Route exact={true} path="/login" render={this.renderLogin} />
       </BrowserRouter>
     );
   };
 }
+
 let mapStateToProps = st => {
-  return { login: st.login, signup: st.signup, admin: st.admin };
+  return { login: st.login, signup: st.signup };
 };
 
 let App = connect(mapStateToProps)(UnconnectedApp);

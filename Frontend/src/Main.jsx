@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Coffee from "./Coffee.jsx";
 import Tea from "./Tea.jsx";
+import { Link } from "react-router-dom";
 
 class Main extends Component {
   constructor() {
@@ -10,15 +11,11 @@ class Main extends Component {
   render = () => {
     return (
       <div className="container">
-        <Link to="/coffee">
-          <button className="button">
-            <img src={"/coffee v1.png"} onClick={this.coffee} />
-          </button>
+        <Link to={"/coffee"} className="button">
+          <img src={"/coffee v1.png"} />
         </Link>
-        <Link to="/tea">
-          <button className="button">
-            <img src={"/tea v1.png"} onClick={this.tea} />
-          </button>
+        <Link to={"/tea"} className="button">
+          <img src={"/tea v1.png"} />
         </Link>
       </div>
     );

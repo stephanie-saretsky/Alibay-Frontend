@@ -43,7 +43,7 @@ class unconnectedTea extends Component {
         <h2>Teas:</h2>
         {/* <Search /> */}
         <ul>
-          {this.props.teas.map(tea => {
+          {this.state.teas.map(tea => {
             return (
               <div>
                 <h3>{tea.name}</h3>

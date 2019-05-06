@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class UnconnectedSignup extends Component {
@@ -49,7 +49,7 @@ class UnconnectedSignup extends Component {
 
   render = () => {
     return (
-      <div class="form-box">
+      <div className="form-box">
         <h2> Sign up</h2>
         <form onSubmit={this.handleSubmit}>
           Username:

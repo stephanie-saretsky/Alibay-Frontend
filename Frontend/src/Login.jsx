@@ -61,8 +61,8 @@ class UnconnectedLogin extends Component {
           <input type="submit" />
         </form>
         <p>
-          You dont have any account yet, Please
-          <Link to={"/signup/"}>Signup here! </Link>
+          You dont have any account yet please,
+          <Link to={"/signup/"}>signup here! </Link>
         </p>
       </div>
     );

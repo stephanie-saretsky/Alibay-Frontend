@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import "./main.css";
 import Login from "./Login.jsx";
 import { connect } from "react-redux";
+import Signup from "./Signup.jsx";
+// import Main from "./Main.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -30,10 +32,7 @@ class UnconnectedApp extends Component {
       return (
         <BrowserRouter>
           <div>
-            <div>
-              <Search />
-              <Item />
-            </div>
+            <div>{/* <Main /> */}</div>
             <div />
           </div>
           <Route exact={true} path="/signup" render={this.renderSignup} />

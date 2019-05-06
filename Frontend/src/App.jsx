@@ -42,7 +42,7 @@ class UnconnectedApp extends Component {
 }
 
 let mapStateToProps = st => {
-  return { login: st.login, signup: st.signup };
+  return { login: st.login };
 };
 
 let App = connect(mapStateToProps)(UnconnectedApp);

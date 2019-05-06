@@ -50,7 +50,7 @@ class UnconnectedSignup extends Component {
 
 render = () => {
   return (
-    <div class="form-box">
+    <div className="form-box">
       <h2> Sign up here:</h2>
       <form onSubmit={this.handleSubmit}>
         Username:

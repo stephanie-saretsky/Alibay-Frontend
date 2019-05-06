@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import "./main.css";
 import Login from "./Login.jsx";
+import { connect } from "react-redux";
 
 class UnconnectedApp extends Component {
   constructor() {

@@ -58,7 +58,9 @@ class UnconnectedSignup extends Component {
           <input type="text" onChange={this.handlePassword} />
           <input type="submit" />
         </form>
-        If you already have an account, <Link to="/login">log in here!</Link>
+        <p>
+          If you already have an account, <Link to="/login">log in here!</Link>
+        </p>
       </div>
     );
   };

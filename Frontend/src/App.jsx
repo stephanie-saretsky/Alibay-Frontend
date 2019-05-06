@@ -4,7 +4,7 @@ import "./main.css";
 import Login from "./Login.jsx";
 import { connect } from "react-redux";
 import Signup from "./Signup.jsx";
-// import Main from "./Main.jsx";
+import Main from "./Main.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -29,7 +29,11 @@ class UnconnectedApp extends Component {
 
   render = () => {
     if (this.props.login) {
-      return <div>{/* <Main /> */}</div>;
+      return (
+        <div>
+          <Main />
+        </div>
+      );
     }
     return (
       <div>

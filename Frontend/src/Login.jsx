@@ -25,6 +25,7 @@ class UnconnectedLogin extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("login form submitted");
+    let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
     fetch(path + "login", {

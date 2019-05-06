@@ -39,7 +39,7 @@ class unconnectedCoffee extends Component {
             return (
               <div>
                 <h3>{coffee.name}</h3>
-                <p>{coffee.price}</p>
+                <p>{coffee.price + "$"}</p>
                 <p>
                   <Link to={"/tea/" + tea.id}>More details</Link>}
                 </p>

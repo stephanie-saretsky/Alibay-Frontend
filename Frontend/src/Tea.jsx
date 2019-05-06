@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import Search from "./search.jsx";
+import Search from "./SearchTea.jsx";
 
 class unconnectedTea extends Component {
   constructor() {
@@ -41,13 +41,13 @@ class unconnectedTea extends Component {
     return (
       <div>
         <h2>Teas:</h2>
-        {/* <Search /> */}
+        <Search />
         <ul>
           {this.state.teas.map(tea => {
             return (
               <div>
                 <h3>{tea.name}</h3>
-                <p>{tea.price}</p>
+                <p>{tea.price + "$"}</p>
                 <p>
                   <Link to={"/tea/" + tea.id}>More details</Link>}
                 </p>

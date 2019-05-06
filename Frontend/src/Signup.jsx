@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+let path = "http://demo1992437.mockable.io/";
 
 class UnconnectedSignup extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("http://localhost:4000/signup", {
+    fetch(path + "signup", {
       method: "POST",
       body: data,
       credentials: "include"

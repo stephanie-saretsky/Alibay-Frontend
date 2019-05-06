@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+let path = "http://demo1992437.mockable.io/";
 
 class UnconnectedLogin extends Component {
   constructor() {
@@ -24,9 +25,10 @@ class UnconnectedLogin extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("login form submitted");
+    let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("/login", {
+    fetch(path + "login", {
       method: "POST",
       body: data,
       credentials: "include"
@@ -62,7 +64,7 @@ class UnconnectedLogin extends Component {
         </form>
         <p>
           You don't have an account yet, please{" "}
-          <Link to={"/signup/"}>sign up here! </Link>
+          <Link to="/signup/">sign up here! </Link>
         </p>
       </div>
     );

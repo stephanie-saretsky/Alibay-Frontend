@@ -46,26 +46,6 @@ class UnconnectedSignup extends Component {
         this.props.dispatch({ type: "Signup" });
       });
   };
-<<<<<<< HEAD
-}
-
-render = () => {
-  return (
-    <div className="form-box">
-      <h2> Sign up here:</h2>
-      <form onSubmit={this.handleSubmit}>
-        Username:
-        <input type="text" onChange={this.handleUsername} />
-        Password:
-        <input type="text" onChange={this.handlePassword} />
-        <input type="submit" />
-      </form>
-      If you already have an account, <Link to="/login">log in here!</Link>
-    </div>
-  );
-};
-=======
->>>>>>> 29cd4e32f44418e91184fb80ff53fe915f0aa93f
 
   render = () => {
     return (

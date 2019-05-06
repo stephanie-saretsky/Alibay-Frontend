@@ -46,6 +46,7 @@ class UnconnectedSignup extends Component {
         this.props.dispatch({ type: "Signup" });
       });
   };
+<<<<<<< HEAD
 }
 
 render = () => {
@@ -63,12 +64,25 @@ render = () => {
     </div>
   );
 };
+=======
+>>>>>>> 29cd4e32f44418e91184fb80ff53fe915f0aa93f
 
-mapStateToProps = state => {
-  return {
-    login: state.login
+  render = () => {
+    return (
+      <div className="form-box">
+        <h2> Sign up</h2>
+        <form onSubmit={this.handleSubmit}>
+          Username:
+          <input type="text" onChange={this.handleUsername} />
+          Password:
+          <input type="text" onChange={this.handlePassword} />
+          <input type="submit" />
+        </form>
+        If you already have an account, <Link to="/login">log in here!</Link>
+      </div>
+    );
   };
-};
+}
 
-let Signup = connect(mapStateToProps)(UnconnectedSignup);
+let Signup = connect()(UnconnectedSignup);
 export default Signup;

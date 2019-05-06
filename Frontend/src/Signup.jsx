@@ -44,7 +44,7 @@ class UnconnectedSignup extends Component {
           alert("Username taken");
           return;
         }
-        this.props.dispatch({ type: "Signup" });
+        this.props.dispatch({ type: "Login" });
       });
   };
 

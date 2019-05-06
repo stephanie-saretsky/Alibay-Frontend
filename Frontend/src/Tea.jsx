@@ -40,6 +40,7 @@ class unconnectedTea extends Component {
     console.log("Teas:");
     return (
       <div>
+        <h2>Teas:</h2>
         {/* <Search /> */}
         <ul>
           {this.props.teas.map(tea => {
@@ -61,4 +62,5 @@ class unconnectedTea extends Component {
 }
 
 let Tea = connect()(unconnectedTea);
+
 export default Tea;

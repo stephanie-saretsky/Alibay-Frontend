@@ -6,10 +6,6 @@ import "./main.css";
 
 class TeaDetails extends Component {
   render = () => {
-    // let newReviews = this.props.reviews.filter(rev => {
-    //   return rev.itemId === this.props.item.id;
-    // });
-
     console.log("PROPS=>", this.props);
     return (
       <div>

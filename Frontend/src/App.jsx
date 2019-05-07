@@ -96,11 +96,48 @@ class UnconnectedApp extends Component {
     );
   };
 
+  sellerDetails = routerData => {
+    let sellerId = routerData.match.params.sid;
+    let data = new FormData();
+    data.append("sellerId", sellerId);
+    console.log("ID=>", sellerId);
+    fetch(path + "item-details-tea", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          console.log("result=>", body);
+          if (this.state.particularItem._id !== body.item._id) {
+            this.setState({
+              particularItem: body.item,
+              particularReviews: body.reviews
+            });
+          }
+        }
+      });
+
+    return (
+      <div>
+        <TeaDetails
+          item={this.state.particularItem}
+          reviews={this.state.particularReviews}
+        />
+      </div>
+    );
+  };
+
   render = () => {
     return (
       <BrowserRouter>
         <Route exact={true} path="/coffee" render={this.coffee} />
         <Route exact={true} path="/tea" render={this.tea} />
+        <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />
         <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
         <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
         <Route exact={true} path="/signup" render={this.renderSignup} />

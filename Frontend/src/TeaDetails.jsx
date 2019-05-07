@@ -2,35 +2,33 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
-// import Stripe from "./Stripe.jsx";
+let path = "http://localhost:4000/";
 
 class TeaDetails extends Component {
-<<<<<<< HEAD
-  // addToCart = () => {
-  //   console.log(this.props.item, "what is item?");
-  //   fetch("/add-tea-to-cart", {
-  //     method: "POST",
-  //     body: this.props.item,
-  //     credentials: "include"
-  //   })
-  //     .then(x => {
-  //       return x.text();
-  //     })
-  //     .then(responseBody => {
-  //       let body = JSON.parse(responseBody);
-  //       if (body.status) {
-  //         alert("Added to cart!");
-  //       }
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  addToCart = () => {
+    console.log(this.props.item, "what is item?");
+    let itemId = this.props.item._id;
+    let data = new FormData();
+    data.append("itemId", itemId);
+    console.log("ID=>", itemId);
+    fetch(path + "add-to-cart-tea", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        console.log(responseBody, "RESPONSE BODY");
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          alert("Added to cart!");
+        }
+      })
+      .catch(err => console.log(err));
+  };
 
-  // add fetch request for reviews
-  // let newReviews = reviews.filter(rev => {
-  //   return rev.itemId === this.props.item.id;
-  // });
-=======
->>>>>>> 1608d270675ff08b527e821bd2b4742f31d10bb4
   render = () => {
     console.log("PROPS=>", this.props);
     return (
@@ -60,9 +58,9 @@ class TeaDetails extends Component {
             <br />
           </div>
         ))}
-        {/* <button className="cart-button" onClick={this.addToCart}>
+        <button className="cart-button" onClick={this.addToCart}>
           Add To Cart
-        </button> */}
+        </button>
       </div>
     );
   };

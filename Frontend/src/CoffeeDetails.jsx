@@ -2,9 +2,33 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
-import Stripe from "./Stripe.jsx";
+let path = "http://localhost:4000/";
 
 class CoffeeDetails extends Component {
+  addToCart = () => {
+    console.log(this.props.item, "what is item?");
+    let itemId = this.props.item._id;
+    let data = new FormData();
+    data.append("itemId", itemId);
+    console.log("ID=>", itemId);
+    fetch(path + "add-to-cart-tea", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        console.log(responseBody, "RESPONSE BODY");
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          alert("Added to cart!");
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
   render = () => {
     // add fetch request for reviews
     // let newReviews = reviews.filter(rev => {

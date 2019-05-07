@@ -20,11 +20,19 @@ class UnconnectedApp extends Component {
   }
 
   renderSignup = () => {
-    return (
-      <div>
-        <Signup />
-      </div>
-    );
+    if (this.props.login) {
+      return (
+        <div>
+          <Main />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Signup />
+        </div>
+      );
+    }
   };
 
   renderLogin = () => {

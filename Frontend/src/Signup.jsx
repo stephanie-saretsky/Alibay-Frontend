@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-let path = "http://demo1992437.mockable.io/";
+let path = "http://localhost:4000/";
 
 class UnconnectedSignup extends Component {
   constructor(props) {

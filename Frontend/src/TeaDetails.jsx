@@ -5,6 +5,7 @@ import "./main.css";
 // import Stripe from "./Stripe.jsx";
 
 class TeaDetails extends Component {
+<<<<<<< HEAD
   // addToCart = () => {
   //   console.log(this.props.item, "what is item?");
   //   fetch("/add-tea-to-cart", {
@@ -28,6 +29,8 @@ class TeaDetails extends Component {
   // let newReviews = reviews.filter(rev => {
   //   return rev.itemId === this.props.item.id;
   // });
+=======
+>>>>>>> 1608d270675ff08b527e821bd2b4742f31d10bb4
   render = () => {
     console.log("PROPS=>", this.props);
     return (

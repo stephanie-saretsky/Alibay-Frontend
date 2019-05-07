@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+let path = "http://localhost:4000/";
 
 class unconnectedCoffee extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class unconnectedCoffee extends Component {
 
   componentDidMount = () => {
     console.log("coffees rendering");
-    fetch("/coffee", {
+    fetch(path + "coffee", {
       method: "GET",
       credentials: "include"
     })
@@ -23,7 +24,9 @@ class unconnectedCoffee extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        this.setState({ coffees: body });
+        if (body.success) {
+          this.setState({ coffees: body.coffeeItems });
+        }
       });
   };
 
@@ -36,13 +39,13 @@ class unconnectedCoffee extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let search = this.state.searchInput;
-    fetch("/getCoffee?search=" + search)
+    fetch(path + "search-item-coffee?search=" + search)
       .then(response => response.text())
       .then(response => {
         let parsedResponse = JSON.parse(response);
         console.log("Response Body =>", parsedResponse);
-        if (parsedResponse.status) {
-          this.setState({ coffees: parsedResponse });
+        if (parsedResponse.success) {
+          this.setState({ coffees: parsedResponse.items });
         }
       })
       .catch(err => console.log(err));
@@ -66,13 +69,13 @@ class unconnectedCoffee extends Component {
           </form>
         </div>
         <ul>
-          {this.state.coffees.map(tea => {
+          {this.state.coffees.map(coffee => {
             return (
               <div>
                 <h3>{coffee.name}</h3>
                 <p>{coffee.price + "$"}</p>
                 <p>
-                  <Link to={"/coffee/" + coffee.id}>More details</Link>}
+                  <Link to={"/coffee/" + coffee._id}>More details</Link>
                 </p>
               </div>
             );

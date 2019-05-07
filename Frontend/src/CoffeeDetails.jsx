@@ -11,7 +11,7 @@ class CoffeeDetails extends Component {
     let data = new FormData();
     data.append("itemId", itemId);
     console.log("ID=>", itemId);
-    fetch(path + "add-to-cart-tea", {
+    fetch(path + "add-to-cart-coffee", {
       method: "POST",
       body: data,
       credentials: "include"
@@ -30,29 +30,27 @@ class CoffeeDetails extends Component {
   };
 
   render = () => {
-    // add fetch request for reviews
-    // let newReviews = reviews.filter(rev => {
-    //   return rev.itemId === this.props.item.id;
-    // });
+    console.log("PROPS=>", this.props);
     return (
-      <div>
-        <div>{this.props.image}</div>
-        <div>{this.props.itemName}</div>
+      <div className="item-card">
+        <img className="item-photo" src={this.props.item.image} />
+        <h3>{this.props.item.name}</h3>
+        <p>{"Quantity: " + this.props.item.quantity}</p>
         <div>
-          <em>{this.props.description}</em>
+          <em>{this.props.item.description}</em>
         </div>
-        <div>{this.props.price}</div>
-        <Link to={"/seller/" + this.props.sellerId}>Seller Information</Link>
+        <div>{"Price: " + this.props.item.price + " $"}</div>
+        <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
         <br />
-        {/* <h4>Reviews:</h4>
-        {newReviews.map(rev => (
+        <h4>Reviews:</h4>
+        {this.props.reviews.map(rev => (
           <Review
             description={rev.description}
             reviewerId={rev.reviewerId}
             itemId={rev.itemId}
           />
-        ))} */}
-        <button className="cart-button" onClick={addToCart}>
+        ))}
+        <button className="cart-button" onClick={this.addToCart}>
           Add To Cart
         </button>
       </div>

@@ -37,11 +37,14 @@ class TeaDetails extends Component {
         <h3>{this.props.item.name}</h3>
         <p>{"Quantity: " + this.props.item.quantity}</p>
         <div>
+          <br />
           <p>
-            Description: <em>{this.props.item.description}</em>
+            <em>{this.props.item.description}</em>
           </p>
         </div>
-        <div>{"Price (50gr package): " + this.props.item.price + " $"}</div>
+        <br />
+        <div>{"Price: " + this.props.item.price + " $"}</div>
+        <br />
         <div>
           <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
         </div>

@@ -8,6 +8,7 @@ import Main from "./Main.jsx";
 import Tea from "./Tea.jsx";
 import Coffee from "./Coffee.jsx";
 import TeaDetails from "./TeaDetails.jsx";
+import CoffeeDetails from "./CoffeeDetails.jsx";
 import Seller from "./Seller.jsx";
 let path = "http://localhost:4000/";
 
@@ -101,6 +102,43 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <TeaDetails
+          item={this.state.particularItem}
+          reviews={this.state.particularReviews}
+        />
+      </div>
+    );
+  };
+
+  coffeeDetails = routerData => {
+    let itemId = routerData.match.params.cid;
+    let data = new FormData();
+    data.append("itemId", itemId);
+    console.log("ID=>", itemId);
+    fetch(path + "item-details-coffee", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        console.log("result=>", body.item);
+        console.log("Reviews=>", body.reviews);
+        if (body.success) {
+          if (this.state.particularItem._id !== body.item._id) {
+            this.setState({
+              particularItem: body.item,
+              particularReviews: body.reviews
+            });
+          }
+        }
+      });
+
+    return (
+      <div>
+        <CoffeeDetails
           item={this.state.particularItem}
           reviews={this.state.particularReviews}
         />

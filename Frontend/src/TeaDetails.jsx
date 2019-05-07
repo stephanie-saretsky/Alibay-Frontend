@@ -2,21 +2,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
+let path = "http://localhost:4000/";
 
 class TeaDetails extends Component {
   addToCart = () => {
     console.log(this.props.item, "what is item?");
-    fetch("/add-tea-to-cart", {
+    let itemId = this.props.item._id;
+    let data = new FormData();
+    data.append("itemId", itemId);
+    console.log("ID=>", itemId);
+    fetch(path + "add-to-cart-tea", {
       method: "POST",
-      body: this.props.item,
+      body: data,
       credentials: "include"
     })
       .then(x => {
         return x.text();
       })
       .then(responseBody => {
+        console.log(responseBody, "RESPONSE BODY");
         let body = JSON.parse(responseBody);
-        if (body.status) {
+        if (body.success) {
           alert("Added to cart!");
         }
       })

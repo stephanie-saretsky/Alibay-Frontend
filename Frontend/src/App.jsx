@@ -24,11 +24,19 @@ class UnconnectedApp extends Component {
   }
 
   renderSignup = () => {
-    return (
-      <div>
-        <Signup />
-      </div>
-    );
+    if (this.props.login) {
+      return (
+        <div>
+          <Main />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Signup />
+        </div>
+      );
+    }
   };
 
   renderLogin = () => {
@@ -119,7 +127,9 @@ class UnconnectedApp extends Component {
           if (this.state.particularSeller.id !== body.seller.id) {
             this.setState({
               particularSeller: body.seller,
-              particularReviews: body.reviews
+              particularReviews: body.reviews,
+              sellerCoffee: body.coffeeItems,
+              sellerTea: body.teaItems
             });
           }
           console.log(this.state);

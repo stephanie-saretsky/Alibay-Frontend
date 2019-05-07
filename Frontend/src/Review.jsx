@@ -6,7 +6,8 @@ class Review extends Component {
   render() {
     return (
       <div>
-        <div>{this.props.description}</div>
+        <h3>{this.props.reviewer}</h3>
+        <p>{this.props.description}</p>
         <Link to={"/reviewer/" + this.props.reviewerId}>Reviewer Details.</Link>
       </div>
     );

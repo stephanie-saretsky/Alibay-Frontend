@@ -8,23 +8,28 @@ class Seller extends Component {
     return (
       <div>
         <h2>{this.props.seller.username}</h2>
+        <br />
         <h3>Reviews: </h3>
+        <br />
         <ul>
           {this.props.reviews.map(rev => (
             <div>
               <p>
                 <strong>{rev.reviewer.name}</strong>: {rev.review}
               </p>
+              <br />
             </div>
           ))}
         </ul>
         <h3>On sale:</h3>
+        <br />
         <ul>
           {this.props.tea.map(tea => (
             <div>
               <p>
                 <strong>{tea.name}</strong> : {tea.description}
               </p>
+              <br />
             </div>
           ))}
         </ul>

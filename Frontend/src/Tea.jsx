@@ -9,7 +9,8 @@ class unconnectedTea extends Component {
     super();
     this.state = {
       teas: [],
-      searchInput: ""
+      searchInput: "",
+      searchResult: null
     };
   }
 
@@ -28,12 +29,42 @@ class unconnectedTea extends Component {
       });
   };
 
+  handleChange = e => {
+    let newInput = e.target.value;
+    this.setState({ searchInput: newInput });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    let search = this.state.searchInput;
+    fetch("/getTea?search=" + search)
+      .then(response => response.text())
+      .then(response => {
+        let parsedResponse = JSON.parse(response);
+        if (parsedResponse.status) {
+          this.setState({ searcheResult: parsedResponse });
+        }
+      })
+      .catch(err => console.log(err));
+    this.setState({ searchInput: "" });
+  };
+
   render = () => {
-    console.log("Teas:");
     return (
       <div>
         <h2>Teas:</h2>
-        <SearchTea />
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.searchInput}
+              onChange={this.handleChange}
+              placeholder="Search for tea"
+            />
+            <br />
+            <input className="searchSubmit" type="submit" value="Search" />
+          </form>
+        </div>
         <ul>
           {this.state.teas.map(tea => {
             return (

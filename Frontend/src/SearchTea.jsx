@@ -7,7 +7,8 @@ class SearchTea extends Component {
   constructor() {
     super();
     this.state = {
-      searchInput: ""
+      searchInput: "",
+      searcheResult: null
     };
   }
 
@@ -24,29 +25,29 @@ class SearchTea extends Component {
       .then(response => {
         let parsedResponse = JSON.parse(response);
         if (parsedResponse.status) {
-          this.setState({ item: parsedResponse });
+          this.setState({ searcheResult: parsedResponse });
         }
       })
       .catch(err => console.log(err));
     this.setState({ searchInput: "" });
   };
 
-  render() {
+  render = () => {
     return (
       <div>
-        <h2>Search:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.searchInput}
             onChange={this.handleChange}
+            placeholder="Search for tea"
           />
           <br />
-          <input className="searchSubmit" type="submit" />
+          <input className="searchSubmit" type="submit" value="Search" />
         </form>
       </div>
     );
-  }
+  };
 }
 
 export default SearchTea;

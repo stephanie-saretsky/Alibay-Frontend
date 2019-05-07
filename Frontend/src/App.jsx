@@ -53,13 +53,21 @@ class UnconnectedApp extends Component {
     );
   };
 
+  teaDetails = () => {
+    return (
+      <div>
+        <TeaDetails />
+      </div>
+    );
+  };
+
   render = () => {
     return (
       <BrowserRouter>
         <Route exact={true} path="/coffee" render={this.coffee} />
         <Route exact={true} path="/tea" render={this.tea} />
-        <Route exact={true} path="/tea/:tid" render={this.renderTeas} />
-        <Route exact={true} path="/tea/:cid" render={this.renderCoffees} />
+        <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
+        <Route exact={true} path="/tea/:cid" render={this.coffeeDetails} />
         <Route exact={true} path="/signup" render={this.renderSignup} />
         <Route exact={true} path="/login" render={this.renderLogin} />
         <Route exact={true} path="/" render={this.renderLogin} />

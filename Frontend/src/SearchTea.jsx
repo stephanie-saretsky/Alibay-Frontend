@@ -3,12 +3,11 @@ import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-class Search extends Component {
+class SearchTea extends Component {
   constructor() {
     super();
     this.state = {
-      searchInput: "",
-      item: null
+      searchInput: ""
     };
   }
 
@@ -29,7 +28,7 @@ class Search extends Component {
         }
       })
       .catch(err => console.log(err));
-    this.setState({ searchInput: "", item: null });
+    this.setState({ searchInput: "" });
   };
 
   render() {
@@ -50,4 +49,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchTea;

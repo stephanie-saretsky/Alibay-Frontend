@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Search from "./SearchTea.jsx";
+import SearchTea from "./SearchTea.jsx";
 
 class unconnectedTea extends Component {
   constructor() {
@@ -28,20 +28,12 @@ class unconnectedTea extends Component {
       });
   };
 
-  renderItem = () => {
-    return (
-      <div>
-        <TeaDetails />
-      </div>
-    );
-  };
-
   render = () => {
     console.log("Teas:");
     return (
       <div>
         <h2>Teas:</h2>
-        <Search />
+        <SearchTea />
         <ul>
           {this.state.teas.map(tea => {
             return (

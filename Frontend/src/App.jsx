@@ -24,6 +24,14 @@ class UnconnectedApp extends Component {
     };
   }
 
+  renderCart = () => {
+    return (
+      <div>
+        <Cart />
+      </div>
+    );
+  };
+
   renderSignup = () => {
     if (this.props.login) {
       return (
@@ -189,6 +197,7 @@ class UnconnectedApp extends Component {
   render = () => {
     return (
       <BrowserRouter>
+        <Route exact={true} path="/cart" render={this.renderCart} />
         <Route exact={true} path="/coffee" render={this.coffee} />
         <Route exact={true} path="/tea" render={this.tea} />
         <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />

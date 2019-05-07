@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import SearchTea from "./SearchTea.jsx";
+let path = "http://localhost:4000/";
 
 class unconnectedTea extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class unconnectedTea extends Component {
 
   componentDidMount = () => {
     console.log("teas rendering");
-    fetch("/tea", {
+    fetch(path + "tea", {
       method: "GET",
       credentials: "include"
     })
@@ -24,7 +24,9 @@ class unconnectedTea extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        this.setState({ teas: body });
+        if (body.success) {
+          this.setState({ teas: body.teaItems });
+        }
       });
   };
 
@@ -36,13 +38,14 @@ class unconnectedTea extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let search = this.state.searchInput;
-    fetch("/getTea?search=" + search)
+    fetch(path + "search-item-tea?search=" + search)
       .then(response => response.text())
       .then(response => {
         let parsedResponse = JSON.parse(response);
         console.log("Response Body =>", parsedResponse);
-        if (parsedResponse.status) {
-          this.setState({ teas: parsedResponse });
+        if (parsedResponse.success) {
+          console.log("array of search=>", parsedResponse.items);
+          this.setState({ teas: parsedResponse.items });
         }
       })
       .catch(err => console.log(err));

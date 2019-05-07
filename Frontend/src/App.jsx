@@ -7,10 +7,14 @@ import Signup from "./Signup.jsx";
 import Main from "./Main.jsx";
 import Tea from "./Tea.jsx";
 import Coffee from "./Coffee.jsx";
+let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
   constructor() {
     super();
+    this.state = {
+      item: null
+    };
   }
 
   renderSignup = () => {
@@ -53,10 +57,28 @@ class UnconnectedApp extends Component {
     );
   };
 
-  teaDetails = () => {
+  teaDetails = routerData => {
+    let itemId = routerData.match.params.tid;
+
+    fetch(path + "/item-details-tea", {
+      method: post,
+      body: itemId,
+      credentials: "include"
+    })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          console.log("result=>", body.item);
+          this.setState({ particularItem: body.item });
+        }
+      });
+
     return (
       <div>
-        <TeaDetails />
+        <TeaDetails item={this.state.item} />
       </div>
     );
   };
@@ -67,7 +89,7 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/coffee" render={this.coffee} />
         <Route exact={true} path="/tea" render={this.tea} />
         <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
-        <Route exact={true} path="/tea/:cid" render={this.coffeeDetails} />
+        <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
         <Route exact={true} path="/signup" render={this.renderSignup} />
         <Route exact={true} path="/login" render={this.renderLogin} />
         <Route exact={true} path="/" render={this.renderLogin} />

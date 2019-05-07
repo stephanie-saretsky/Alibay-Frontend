@@ -11,6 +11,8 @@ import TeaDetails from "./TeaDetails.jsx";
 import CoffeeDetails from "./CoffeeDetails.jsx";
 import Seller from "./Seller.jsx";
 import AddItem from "./AddItem.jsx";
+import NavBar from "./NavBar.jsx";
+import Cart from "./Cart.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
@@ -24,6 +26,21 @@ class UnconnectedApp extends Component {
       sellerCoffee: []
     };
   }
+
+  componentDidMount = () => {
+    fetch("http://localhost:4000/login-check", {
+      credentials: "include"
+    })
+      .then(responseHeader => {
+        return responseHeader.text();
+      })
+      .then(responseBody => {
+        let parsed = JSON.parse(responseBody);
+        if (parsed.success) {
+          this.props.dispatch({ type: "Login" });
+        }
+      });
+  };
 
   renderCart = () => {
     return (
@@ -198,17 +215,20 @@ class UnconnectedApp extends Component {
 
   render = () => {
     return (
-      <BrowserRouter>
-        <Route exact={true} path="/cart" render={this.renderCart} />
-        <Route exact={true} path="/coffee" render={this.coffee} />
-        <Route exact={true} path="/tea" render={this.tea} />
-        <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />
-        <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
-        <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
-        <Route exact={true} path="/signup" render={this.renderSignup} />
-        <Route exact={true} path="/login" render={this.renderLogin} />
-        <Route exact={true} path="/" render={this.renderLogin} />
-      </BrowserRouter>
+      <div>
+        <BrowserRouter>
+          <NavBar />
+          <Route exact={true} path="/cart" render={this.renderCart} />
+          <Route exact={true} path="/coffee" render={this.coffee} />
+          <Route exact={true} path="/tea" render={this.tea} />
+          <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />
+          <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
+          <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
+          <Route exact={true} path="/signup" render={this.renderSignup} />
+          <Route exact={true} path="/login" render={this.renderLogin} />
+          <Route exact={true} path="/" render={this.renderLogin} />
+        </BrowserRouter>
+      </div>
     );
   };
 }

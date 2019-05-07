@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
-import Stripe from "./Stripe.jsx";
 
 class CoffeeDetails extends Component {
   render = () => {

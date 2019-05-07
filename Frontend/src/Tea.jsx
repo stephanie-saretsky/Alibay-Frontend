@@ -31,6 +31,7 @@ class unconnectedTea extends Component {
   };
 
   handleChange = e => {
+    console.log(e.target.value);
     let newInput = e.target.value;
     this.setState({ searchInput: newInput });
   };

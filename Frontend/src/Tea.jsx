@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import SearchTea from "./SearchTea.jsx";
-let path = "http://demo1992437.mockable.io/";
+let path = "http://localhost:4000/";
 
 class unconnectedTea extends Component {
   constructor() {
@@ -16,7 +15,7 @@ class unconnectedTea extends Component {
 
   componentDidMount = () => {
     console.log("teas rendering");
-    fetch("/tea", {
+    fetch(path + "tea", {
       method: "GET",
       credentials: "include"
     })
@@ -39,12 +38,13 @@ class unconnectedTea extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let search = this.state.searchInput;
-    fetch("path+/search-item-tea?search=" + search)
+    fetch(path + "search-item-tea?search=" + search)
       .then(response => response.text())
       .then(response => {
         let parsedResponse = JSON.parse(response);
         console.log("Response Body =>", parsedResponse);
         if (parsedResponse.success) {
+          console.log("array of search=>", parsedResponse.items);
           this.setState({ teas: parsedResponse.items });
         }
       })

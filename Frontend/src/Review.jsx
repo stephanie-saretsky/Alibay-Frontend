@@ -8,7 +8,6 @@ class Review extends Component {
       <div>
         <h4>{this.props.reviewer + ": "}</h4>
         <p>{this.props.description}</p>
-        <Link to={"/reviewer/" + this.props.reviewerId}>Reviewer Details.</Link>
       </div>
     );
   }

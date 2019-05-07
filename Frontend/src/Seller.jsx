@@ -27,7 +27,10 @@ class Seller extends Component {
           {this.props.tea.map(tea => (
             <div>
               <p>
-                <strong>{tea.name}</strong> : {tea.description}
+                <Link to={"/tea/" + tea._id}>
+                  <strong>{tea.name}</strong>
+                </Link>{" "}
+                : {tea.description}
               </p>
               <br />
             </div>

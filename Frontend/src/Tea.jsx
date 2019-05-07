@@ -9,8 +9,7 @@ class unconnectedTea extends Component {
     super();
     this.state = {
       teas: [],
-      searchInput: "",
-      searchResult: null
+      searchInput: ""
     };
   }
 
@@ -41,8 +40,9 @@ class unconnectedTea extends Component {
       .then(response => response.text())
       .then(response => {
         let parsedResponse = JSON.parse(response);
+        console.log("Response Body =>", parsedResponse);
         if (parsedResponse.status) {
-          this.setState({ searcheResult: parsedResponse });
+          this.setState({ teas: parsedResponse });
         }
       })
       .catch(err => console.log(err));

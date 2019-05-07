@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import Search from "./search.jsx";
 
 class unconnectedCoffee extends Component {
   constructor() {
@@ -24,18 +23,50 @@ class unconnectedCoffee extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        this.setState({ teas: body });
+        this.setState({ coffees: body });
       });
   };
 
+  handleChange = e => {
+    let newInput = e.target.value;
+    console.log(newInput);
+    this.setState({ searchInput: newInput });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    let search = this.state.searchInput;
+    fetch("/getCoffee?search=" + search)
+      .then(response => response.text())
+      .then(response => {
+        let parsedResponse = JSON.parse(response);
+        console.log("Response Body =>", parsedResponse);
+        if (parsedResponse.status) {
+          this.setState({ coffees: parsedResponse });
+        }
+      })
+      .catch(err => console.log(err));
+    this.setState({ searchInput: "" });
+  };
+
   render = () => {
-    console.log("coffees:");
     return (
       <div>
         <h2>Coffees:</h2>
-        {/* <Search /> */}
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.searchInput}
+              onChange={this.handleChange}
+              placeholder="Search for coffee"
+            />
+            <br />
+            <input className="searchSubmit" type="submit" value="Search" />
+          </form>
+        </div>
         <ul>
-          {this.state.coffees.map(coffee => {
+          {this.state.coffees.map(tea => {
             return (
               <div>
                 <h3>{coffee.name}</h3>

@@ -26,6 +26,7 @@ class unconnectedCoffee extends Component {
         let body = JSON.parse(responseBody);
         if (body.success) {
           this.setState({ coffees: body.coffeeItems });
+          this.props.dispatch({ type: "coffee" });
         }
       });
   };

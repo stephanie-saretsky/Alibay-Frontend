@@ -10,6 +10,7 @@ import Coffee from "./Coffee.jsx";
 import TeaDetails from "./TeaDetails.jsx";
 import CoffeeDetails from "./CoffeeDetails.jsx";
 import Seller from "./Seller.jsx";
+import AddItem from "./AddItem.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
@@ -76,6 +77,7 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <Tea />
+        <AddItem />
       </div>
     );
   };

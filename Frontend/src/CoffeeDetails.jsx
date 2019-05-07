@@ -30,13 +30,10 @@ class CoffeeDetails extends Component {
   };
 
   render = () => {
-    // add fetch request for reviews
-    // let newReviews = reviews.filter(rev => {
-    //   return rev.itemId === this.props.item.id;
-    // });
+    console.log("PROPS=>", this.props);
     return (
-      <div>
-        <div>{this.props.image}</div>
+      <div className="item-card">
+        <div className="item-photo">{this.props.image}</div>
         <div>{this.props.itemName}</div>
         <div>
           <em>{this.props.description}</em>

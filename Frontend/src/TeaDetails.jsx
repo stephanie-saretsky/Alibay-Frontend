@@ -22,16 +22,21 @@ class TeaDetails extends Component {
           </p>
         </div>
         <div>{"price: " + this.props.item.price + " $"}</div>
-        <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
+        <div>
+          <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
+        </div>
         <br />
         <h4>Reviews:</h4>
         {this.props.reviews.map(rev => (
-          <Review
-            description={rev.review}
-            reviewer={rev.reviewer.name}
-            reviewerId={rev.reviewer.id}
-            itemId={rev.itemId}
-          />
+          <div>
+            <Review
+              description={rev.review}
+              reviewer={rev.reviewer.name}
+              reviewerId={rev.reviewer.id}
+              itemId={rev.itemId}
+            />
+            <br />
+          </div>
         ))}
         {/* <Stripe /> */}
       </div>

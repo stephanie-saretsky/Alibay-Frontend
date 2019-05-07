@@ -28,7 +28,9 @@ class CoffeeDetails extends Component {
             itemId={rev.itemId}
           />
         ))} */}
-        <Stripe />
+        <button className="cart-button" onClick={addToCart}>
+          Add To Cart
+        </button>
       </div>
     );
   };

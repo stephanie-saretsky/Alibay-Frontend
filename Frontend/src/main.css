@@ -39,3 +39,6 @@ img {
 .button:active {
   transform: scale(0.99);
 }
+
+.cart-button {
+}

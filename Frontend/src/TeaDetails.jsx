@@ -6,6 +6,20 @@ import Stripe from "./Stripe.jsx";
 
 class TeaDetails extends Component {
   render = () => {
+
+    addToCart = () => 
+    fetch("/add-to-cart-tea" + search)
+    .then(response => response.text())
+    .then(response => {
+      let parsedResponse = JSON.parse(response);
+      console.log("Response Body =>", parsedResponse);
+      if (parsedResponse.status) {
+       
+      }
+    })
+    .catch(err => console.log(err));
+  this.setState({ searchInput: "" });
+};
     // add fetch request for reviews
     // let newReviews = reviews.filter(rev => {
     //   return rev.itemId === this.props.item.id;
@@ -28,7 +42,9 @@ class TeaDetails extends Component {
             itemId={rev.itemId}
           />
         ))} */}
-        <Stripe />
+        <button className="cart-button" onClick={addToCart}>
+          Add To Cart
+        </button>
       </div>
     );
   };

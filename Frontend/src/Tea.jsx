@@ -75,7 +75,7 @@ class unconnectedTea extends Component {
                 <h3>{tea.name}</h3>
                 <p>{tea.price + "$"}</p>
                 <p>
-                  <Link to={"/tea/" + tea.id}>More details</Link>}
+                  <Link to={"tea/" + tea._id}>More details</Link>
                 </p>
               </div>
             );

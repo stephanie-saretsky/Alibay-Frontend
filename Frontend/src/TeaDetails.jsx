@@ -2,49 +2,64 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
-import Stripe from "./Stripe.jsx";
+// import Stripe from "./Stripe.jsx";
 
 class TeaDetails extends Component {
-  render = () => {
+  // addToCart = () => {
+  //   console.log(this.props.item, "what is item?");
+  //   fetch("/add-tea-to-cart", {
+  //     method: "POST",
+  //     body: this.props.item,
+  //     credentials: "include"
+  //   })
+  //     .then(x => {
+  //       return x.text();
+  //     })
+  //     .then(responseBody => {
+  //       let body = JSON.parse(responseBody);
+  //       if (body.status) {
+  //         alert("Added to cart!");
+  //       }
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
-    addToCart = () => 
-    fetch("/add-to-cart-tea" + search)
-    .then(response => response.text())
-    .then(response => {
-      let parsedResponse = JSON.parse(response);
-      console.log("Response Body =>", parsedResponse);
-      if (parsedResponse.status) {
-       
-      }
-    })
-    .catch(err => console.log(err));
-  this.setState({ searchInput: "" });
-};
-    // add fetch request for reviews
-    // let newReviews = reviews.filter(rev => {
-    //   return rev.itemId === this.props.item.id;
-    // });
+  // add fetch request for reviews
+  // let newReviews = reviews.filter(rev => {
+  //   return rev.itemId === this.props.item.id;
+  // });
+  render = () => {
+    console.log("PROPS=>", this.props);
     return (
       <div>
-        <div>{this.props.image}</div>
-        <div>{this.props.itemName}</div>
+        <img src={this.props.item.image} />
+        <h3>{this.props.item.name}</h3>
+        <p>{"Quantity: " + this.props.item.quantity}</p>
         <div>
-          <em>{this.props.description}</em>
+          <p>
+            Description: <em>{this.props.item.description}</em>
+          </p>
         </div>
-        <div>{this.props.price}</div>
-        <Link to={"/seller/" + this.props.sellerId}>Seller Information</Link>
+        <div>{"price: " + this.props.item.price + " $"}</div>
+        <div>
+          <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
+        </div>
         <br />
-        {/* <h4>Reviews:</h4>
-        {newReviews.map(rev => (
-          <Review
-            description={rev.description}
-            reviewerId={rev.reviewerId}
-            itemId={rev.itemId}
-          />
-        ))} */}
-        <button className="cart-button" onClick={addToCart}>
+        <h4>Reviews:</h4>
+        {this.props.reviews.map(rev => (
+          <div>
+            <Review
+              description={rev.review}
+              reviewer={rev.reviewer.name}
+              reviewerId={rev.reviewer.id}
+              itemId={rev.itemId}
+            />
+            <br />
+          </div>
+        ))}
+        {/* <button className="cart-button" onClick={this.addToCart}>
           Add To Cart
-        </button>
+        </button> */}
       </div>
     );
   };

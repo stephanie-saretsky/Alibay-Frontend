@@ -7,13 +7,15 @@ import Signup from "./Signup.jsx";
 import Main from "./Main.jsx";
 import Tea from "./Tea.jsx";
 import Coffee from "./Coffee.jsx";
+import TeaDetails from "./TeaDetails.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
   constructor() {
     super();
     this.state = {
-      item: null
+      particularItem: {},
+      particularReviews: []
     };
   }
 
@@ -59,10 +61,12 @@ class UnconnectedApp extends Component {
 
   teaDetails = routerData => {
     let itemId = routerData.match.params.tid;
-
-    fetch(path + "/item-details-tea", {
-      method: post,
-      body: itemId,
+    let data = new FormData();
+    data.append("itemId", itemId);
+    console.log("ID=>", itemId);
+    fetch(path + "item-details-tea", {
+      method: "POST",
+      body: data,
       credentials: "include"
     })
       .then(x => {
@@ -72,13 +76,22 @@ class UnconnectedApp extends Component {
         let body = JSON.parse(responseBody);
         if (body.success) {
           console.log("result=>", body.item);
-          this.setState({ particularItem: body.item });
+          console.log("Reviews=>", body.reviews);
+          if (this.state.particularItem._id !== body.item._id) {
+            this.setState({
+              particularItem: body.item,
+              particularReviews: body.reviews
+            });
+          }
         }
       });
 
     return (
       <div>
-        <TeaDetails item={this.state.item} />
+        <TeaDetails
+          item={this.state.particularItem}
+          reviews={this.state.particularReviews}
+        />
       </div>
     );
   };
@@ -99,7 +112,7 @@ class UnconnectedApp extends Component {
 }
 
 let mapStateToProps = st => {
-  return { login: st.login, signup: st.signup };
+  return { login: st.login };
 };
 
 let App = connect(mapStateToProps)(UnconnectedApp);

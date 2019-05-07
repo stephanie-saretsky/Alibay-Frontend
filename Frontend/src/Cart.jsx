@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import main from "./main.css";
+import Stripe from "./Stripe.jsx";
 let path = "http://localhost:4000/";
 
 class Cart extends Component {

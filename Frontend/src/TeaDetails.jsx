@@ -32,8 +32,8 @@ class TeaDetails extends Component {
   render = () => {
     console.log("PROPS=>", this.props);
     return (
-      <div>
-        <img src={this.props.item.image} />
+      <div className="item-card">
+        <img className="item-photo" src={this.props.item.image} />
         <h3>{this.props.item.name}</h3>
         <p>{"Quantity: " + this.props.item.quantity}</p>
         <div>

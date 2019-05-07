@@ -42,3 +42,12 @@ img {
 
 .cart-button {
 }
+
+.item-photo {
+  width: 300px;
+  height: 300px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px;
+  border-width: medium;
+}

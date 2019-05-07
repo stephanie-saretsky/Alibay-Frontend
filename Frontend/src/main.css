@@ -18,7 +18,7 @@ body {
   align-items: center;
   height: 100vh;
 }
-.button {
+.main-button {
   background-color: #f5f6f8;
   width: 500px;
   height: 333px;
@@ -29,14 +29,14 @@ img {
   height: 100%;
 }
 
-.button:hover,
-.button:focus {
+.main-button:hover,
+.main-button:focus {
   outline: 1px solid rgb(9, 9, 9);
   outline-offset: -4px;
   background: #050505;
 }
 
-.button:active {
+.main-button:active {
   transform: scale(0.99);
 }
 

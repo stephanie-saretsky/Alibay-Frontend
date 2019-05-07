@@ -11,10 +11,10 @@ class Main extends Component {
   render = () => {
     return (
       <div className="container">
-        <Link to={"/coffee"} className="button">
+        <Link to={"/coffee"} className="main-button">
           <img src={"/coffee v1.png"} />
         </Link>
-        <Link to={"/tea"} className="button">
+        <Link to={"/tea"} className="main-button">
           <img src={"/tea v1.png"} />
         </Link>
       </div>

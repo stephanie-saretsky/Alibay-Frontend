@@ -42,6 +42,14 @@ class UnconnectedApp extends Component {
       });
   };
 
+  renderItem = () => {
+    return (
+      <div>
+        <AddItem />
+      </div>
+    );
+  };
+
   renderCart = () => {
     return (
       <div>
@@ -217,7 +225,7 @@ class UnconnectedApp extends Component {
       <div>
         <BrowserRouter>
           <NavBar />
-          <Route exact={true} path="/cart" render={this.renderCart} />
+          <Route exact={true} path="/add-item" render={this.renderItem} />
           <Route exact={true} path="/coffee" render={this.coffee} />
           <Route exact={true} path="/tea" render={this.tea} />
           <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />

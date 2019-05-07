@@ -19,7 +19,13 @@ class UnconnectedNavBar extends Component {
   render = () => {
     return (
       <div>
-        {/* // ADD DROPDOWN MENU - coffee and tea
+        <div>
+          <Link to={"/add-item"} className="nav-button">
+            Add Item
+          </Link>
+        </div>
+        {
+          /* // ADD DROPDOWN MENU - coffee and tea
 
     // ADD LOGO
     // <div>
@@ -27,19 +33,21 @@ class UnconnectedNavBar extends Component {
     // </div>
 
     // ADD ITEM
-
-     <div>
+        }
+     
         <Link to={"/add-item"} className="nav-button">
         </Link>
-      </div>
+   
 
-    CART BUTTON */}
-        <div>
-          <Link to={"/cart"}>
-            <img className="cart-button" src={"/cart button.jpg"} />
-          </Link>
-        </div>
-        {/* LOG OUT BUTTON */}
+    CART BUTTON */
+
+          <div>
+            <Link to={"/cart"}>
+              <img className="cart-button" src={"/cart button.jpg"} />
+            </Link>
+          </div>
+          /* LOG OUT BUTTON */
+        }
         <div>
           <button onClick={this.logout}>Log out</button>
         </div>

@@ -27,6 +27,21 @@ class UnconnectedApp extends Component {
     };
   }
 
+  componentDidMount = () => {
+    fetch("http://localhost:4000/login-check", {
+      credentials: "include"
+    })
+      .then(responseHeader => {
+        return responseHeader.text();
+      })
+      .then(responseBody => {
+        let parsed = JSON.parse(responseBody);
+        if (parsed.success) {
+          this.props.dispatch({ type: "Login" });
+        }
+      });
+  };
+
   renderCart = () => {
     return (
       <div>

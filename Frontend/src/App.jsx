@@ -94,7 +94,6 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <Tea />
-        <AddItem />
       </div>
     );
   };

@@ -5,11 +5,24 @@ import Review from "./Review.jsx";
 
 class Seller extends Component {
   render() {
+    console.log("PROPS=>", this.props);
     return (
       <div>
         <h2>{this.props.seller.username}</h2>
         <br />
         <h3>Reviews: </h3>
+        <Link
+          to={{
+            pathname: "/add-review-seller",
+            state: {
+              sellerId: this.props.seller.id,
+              name: this.props.seller.username
+            }
+          }}
+          className="nav-button"
+        >
+          Add a review
+        </Link>
         <br />
         <ul>
           {this.props.reviews.map(rev => (

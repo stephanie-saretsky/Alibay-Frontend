@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Alegreya", serif;
 }
 
 body {
@@ -75,11 +76,13 @@ body {
   max-width: 3000px;
   margin: 36px auto;
   padding: 20px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 20px;
   line-height: 1;
   background-color: rgb(233, 231, 233);
+  font-size: 18px;
 }
 
 .item-card {
@@ -96,6 +99,7 @@ body {
   margin: 36px auto;
   padding: 20px;
   background-color: rgb(233, 231, 233);
+  font-size: 18px;
 }
 
 .addToCartButton {

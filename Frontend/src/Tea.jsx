@@ -75,12 +75,11 @@ class unconnectedTea extends Component {
             {this.state.teas.map(tea => {
               return (
                 <div className="list-item-card">
-                  <img className="item-photo" src={tea.image} />
+                  <Link to={"tea/" + tea._id}>
+                    <img className="item-photo" src={tea.image} />
+                  </Link>
                   <h3>{tea.name}</h3>
                   <br />
-                  <p>
-                    <Link to={"tea/" + tea._id}>More details</Link>
-                  </p>
                 </div>
               );
             })}

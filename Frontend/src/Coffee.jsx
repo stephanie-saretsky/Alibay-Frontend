@@ -57,16 +57,17 @@ class unconnectedCoffee extends Component {
     return (
       <div>
         <h2>Coffees:</h2>
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <div className="wrap">
+          <form className="search" onSubmit={this.handleSubmit}>
             <input
               type="text"
+              className="searchTerm"
               value={this.state.searchInput}
               onChange={this.handleChange}
               placeholder="Search for coffee"
             />
             <br />
-            <input className="searchSubmit" type="submit" value="Search" />
+            <input className="searchButton" type="submit" value="Search" />
           </form>
         </div>
         <ul className="list-item-container">

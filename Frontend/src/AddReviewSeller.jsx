@@ -7,7 +7,8 @@ class UnconnectedAddReviewSeller extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      desc: ""
+      desc: "",
+      ratingInput: "5"
     };
   }
 
@@ -16,12 +17,18 @@ class UnconnectedAddReviewSeller extends Component {
     this.setState({ desc: event.target.value });
   };
 
+  handleRadioChange = e => {
+    let ratingInput = e.target.value;
+    this.setState({ ratingInput });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log("Add a revew to an item form submitted");
     let data = new FormData();
     data.append("review", this.state.desc);
     data.append("sellerId", this.props.sellerId);
+    data.append("rating", this.state.ratingInput);
     fetch(path + "add-review-seller", {
       method: "POST",
       body: data,
@@ -60,6 +67,59 @@ class UnconnectedAddReviewSeller extends Component {
             required
           />
           <br />
+          Rating:
+          <section className="radioRow">
+            <label>
+              <input
+                type="radio"
+                name="review"
+                value="1"
+                checked={this.state.ratingInput === "1"}
+                onChange={this.handleRadioChange}
+              />
+              1
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="review"
+                value="2"
+                checked={this.state.ratingInput === "2"}
+                onChange={this.handleRadioChange}
+              />
+              2
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="review"
+                value="3"
+                checked={this.state.ratingInput === "3"}
+                onChange={this.handleRadioChange}
+              />
+              3
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="review"
+                value="4"
+                checked={this.state.ratingInput === "4"}
+                onChange={this.handleRadioChange}
+              />
+              4
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="review"
+                value="5"
+                checked={this.state.ratingInput === "5"}
+                onChange={this.handleRadioChange}
+              />
+              5
+            </label>
+          </section>
           <input type="submit" value="Add" />
         </form>
       </div>

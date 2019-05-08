@@ -29,6 +29,28 @@ class TeaDetails extends Component {
       .catch(err => console.log(err));
   };
 
+  renderRatingTwo = x => {
+    let stars = [];
+    for (let i = 0; i < x; i++) {
+      stars = stars.concat("★");
+    }
+    return stars;
+  };
+
+  renderAverage = () => {
+    let reviews = this.props.reviews;
+    let total = 0;
+    let div = reviews.length;
+    let average = 0;
+    reviews.map(elem => {
+      let number = Number(elem.rating);
+      total += number;
+    });
+    average = Math.round(total / div);
+    console.log("average=>", average);
+    return average;
+  };
+
   render = () => {
     console.log("PROPS=>", this.props);
     return (
@@ -36,6 +58,9 @@ class TeaDetails extends Component {
         <div className="item-card">
           <img className="item-photo" src={this.props.item.image} />
           <h3>{this.props.item.name}</h3>
+          <p>
+            <span>{this.renderRatingTwo(this.renderAverage())}</span>
+          </p>
           <p>{"Quantity: " + this.props.item.quantity}</p>
           <div>
             <br />

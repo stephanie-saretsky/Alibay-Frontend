@@ -69,12 +69,13 @@ class unconnectedCoffee extends Component {
             <input className="searchSubmit" type="submit" value="Search" />
           </form>
         </div>
-        <ul>
+        <ul className="list-item-container">
           {this.state.coffees.map(coffee => {
             return (
-              <div>
+              <div className="list-item-card">
+                <img className="item-photo" src={coffee.image} />
                 <h3>{coffee.name}</h3>
-                <p>{coffee.price + "$"}</p>
+                <br />
                 <p>
                   <Link to={"/coffee/" + coffee._id}>More details</Link>
                 </p>

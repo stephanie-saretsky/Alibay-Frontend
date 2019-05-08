@@ -12,10 +12,10 @@ class Main extends Component {
     return (
       <div className="container">
         <Link to={"/coffee"} className="main-button">
-          <img className="main-image" src={"/coffee v1.png"} />
+          <img className="main-img" src={"/coffee v1.png"} />
         </Link>
         <Link to={"/tea"} className="main-button">
-          <img src={"/tea v1.png"} />
+          <img className="main-img" src={"/tea v1.png"} />
         </Link>
       </div>
     );

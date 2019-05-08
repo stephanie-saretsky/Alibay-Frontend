@@ -17,12 +17,22 @@
 
 .nav-button {
   text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* why is the link font bolder? */
+
+.nav-button:hover,
+.logout-button:hover,
+.drop-button:hover {
   color: #999933;
 }
 
 .sell-item,
 .logout,
-.cart-button {
+.cart-button,
+.dropdown {
   padding: 30px;
 }
 
@@ -40,9 +50,11 @@
 .logout-button {
   padding: 10px 20px;
   background-color: white;
-  border: 1px solid grey;
+  border: none;
   border-radius: 2px;
   margin-top: 0px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -53,6 +65,34 @@
 .drop-button {
   padding: 10px 20px;
   background-color: white;
-  border: 1px solid grey;
+  border: none;
   border-radius: 2px;
+  font-size: 16px;
+  cursor: pointer;
 }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 88px;
+  z-index: 1;
+}
+
+.drop-link {
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  box-shadow: 4px 12px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.drop-link:hover {
+  background-color: #999933;
+}
+
+/* change cart image to green */

@@ -16,6 +16,7 @@ import NavBar from "./NavBar.jsx";
 import Cart from "./Cart.jsx";
 import AddReview from "./AddReview.jsx";
 import AddReviewSeller from "./AddReviewSeller.jsx";
+import Footer from "./Footer.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
@@ -252,32 +253,37 @@ class UnconnectedApp extends Component {
       <div>
         <BrowserRouter>
           <NavBar renderLogin={this.renderLogin} />
-
-          <Route exact={true} path="/cart" render={this.renderCart} />
-          <Route exact={true} path="/add-item" render={this.renderItem} />
-          <Route
-            exact={true}
-            path="/add-review-item"
-            render={this.renderReviewItem}
-          />
-          <Route
-            exact={true}
-            path="/add-review-seller"
-            render={this.renderAddReviewSeller}
-          />
-          <Route exact={true} path="/coffee" render={this.coffee} />
-          <Route exact={true} path="/tea" render={this.tea} />
-          <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />
-          <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
-          <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
-          <Route exact={true} path="/signup" render={this.renderSignup} />
-          <Route exact={true} path="/login" render={this.renderLogin} />
-          <Route exact={true} path="/" render={this.renderLogin} />
-          <footer>
-            <section>
-              <div>Contact</div>
-            </section>
-          </footer>
+          <div className="global">
+            <Route exact={true} path="/cart" render={this.renderCart} />
+            <Route exact={true} path="/add-item" render={this.renderItem} />
+            <Route
+              exact={true}
+              path="/add-review-item"
+              render={this.renderReviewItem}
+            />
+            <Route
+              exact={true}
+              path="/add-review-seller"
+              render={this.renderAddReviewSeller}
+            />
+            <Route exact={true} path="/coffee" render={this.coffee} />
+            <Route exact={true} path="/tea" render={this.tea} />
+            <Route
+              exact={true}
+              path="/seller/:sid"
+              render={this.sellerDetails}
+            />
+            <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
+            <Route
+              exact={true}
+              path="/coffee/:cid"
+              render={this.coffeeDetails}
+            />
+            <Route exact={true} path="/signup" render={this.renderSignup} />
+            <Route exact={true} path="/login" render={this.renderLogin} />
+            <Route exact={true} path="/" render={this.renderLogin} />
+          </div>
+          <Footer />
         </BrowserRouter>
       </div>
     );

@@ -70,19 +70,21 @@ class unconnectedTea extends Component {
             <input className="searchSubmit" type="submit" value="Search" />
           </form>
         </div>
-        <ul>
-          {this.state.teas.map(tea => {
-            return (
-              <div>
-                <h3>{tea.name}</h3>
-                <p>{tea.price + "$"}</p>
-                <p>
-                  <Link to={"tea/" + tea._id}>More details</Link>
-                </p>
-              </div>
-            );
-          })}
-        </ul>
+        <div>
+          <ul className="list-item-container">
+            {this.state.teas.map(tea => {
+              return (
+                <div className="list-item-card">
+                  <img className="item-photo" src={tea.image} />
+                  <h3>{tea.name}</h3>
+                  <p>
+                    <Link to={"tea/" + tea._id}>More details</Link>
+                  </p>
+                </div>
+              );
+            })}
+          </ul>
+        </div>
         <div />
       </div>
     );

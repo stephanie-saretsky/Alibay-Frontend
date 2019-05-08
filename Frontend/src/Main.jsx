@@ -11,7 +11,7 @@ class Main extends Component {
   render = () => {
     return (
       <div>
-        <h1 className="header">Welcome to Procaffeinating</h1>
+        <h1 className="header">Procaffeinating</h1>
         <div className="container">
           <Link to={"/coffee"} className="main-button">
             <img className="main-img" src={"/coffee v1.png"} />

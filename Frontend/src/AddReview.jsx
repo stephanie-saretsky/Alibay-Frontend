@@ -13,45 +13,18 @@ class UnconnectedAddReview extends Component {
     };
   }
 
-  handleChangeName = event => {
-    console.log("Name", event.target.value);
-    this.setState({ name: event.target.value });
-  };
-
   handleChangeDesc = event => {
     console.log("Desc", event.target.value);
     this.setState({ desc: event.target.value });
   };
 
-  handleChangeQuantity = event => {
-    console.log("Quantity", event.target.value);
-    this.setState({ quantity: event.target.value });
-  };
-
-  handleChangePrice = event => {
-    console.log("Price", event.target.value);
-    this.setState({ price: event.target.value });
-  };
-
-  handleChange = event => {
-    console.log("Type", event.target.value);
-    this.setState({ type: event.target.value });
-  };
-
   handleSubmit = event => {
     event.preventDefault();
-    console.log("Add an item form submitted");
+    console.log("Add a revew to an item form submitted");
     let data = new FormData();
-    let type = "add-item-tea";
-    if (this.state.type === "coffee") {
-      type = "add-item-coffee";
-    }
-    data.append("name", this.state.name);
-    data.append("price", this.state.price);
-    data.append("quantity", this.state.quantity);
     data.append("desc", this.state.desc);
-    data.append("file", this.state.file);
-    fetch(path + type, {
+    data.append("ItemId", this.props.itemId);
+    fetch(path + "add-review-item", {
       method: "POST",
       body: data,
       credentials: "include"
@@ -64,57 +37,30 @@ class UnconnectedAddReview extends Component {
         let body = JSON.parse(responseBody);
         console.log("parsed body", body);
         if (body.success) {
-          alert("Item Added");
+          alert("Review Added");
           return;
         }
-        alert("Please, make sure you added everything");
+        alert("Please, make sure you wrote everything");
         return;
       });
   };
 
   render = () => {
-    console.log("TYPE=>", this.props.type);
+    console.log("Props =>", this.props);
     return (
       <div className="form-box">
-        <h2> Add {this.state.type}</h2>
+        <h2> Add a review to {this.props.name}</h2>
         <form onSubmit={this.handleSubmit}>
-          <select name="Choice" onChange={this.handleChange}>
-            <option value="tea">Tea</option>
-            <option value="coffee">Coffee</option>
-          </select>
-          <p>Name of the Item: </p>
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChangeName}
-          />
-          <p>Price: </p>
-          <input
-            type="number"
-            min="0"
-            max="100000000"
-            name="price"
-            onChange={this.handleChangePrice}
-          />
-          <p>Description: </p>
+          <p>Comment: </p>
           <textarea
             rows="4"
             cols="50"
             name="textarea"
             value={this.state.desc}
             onChange={this.handleChangeDesc}
+            required
           />
-          <p>Image</p>
-          <input type="file" onChange={this.handleFile} />
-          <p>Quantity:</p>
-          <input
-            type="number"
-            min="0"
-            max="100000000"
-            name="quantity"
-            onChange={this.handleChangeQuantity}
-          />
-          <p />
+          <br />
           <input type="submit" value="Add" />
         </form>
       </div>

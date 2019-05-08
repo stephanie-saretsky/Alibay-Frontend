@@ -57,7 +57,16 @@ class TeaDetails extends Component {
         </div>
         <h4>Reviews:</h4>
         <div>
-          <Link to={"/add-review-item"} className="nav-button">
+          <Link
+            to={{
+              pathname: "/add-review-item",
+              state: {
+                itemId: this.props.item._id,
+                name: this.props.item.name
+              }
+            }}
+            className="nav-button"
+          >
             Add a review
           </Link>
         </div>

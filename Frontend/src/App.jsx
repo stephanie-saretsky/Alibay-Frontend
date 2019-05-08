@@ -51,10 +51,14 @@ class UnconnectedApp extends Component {
     );
   };
 
-  renderReviewItem = () => {
+  renderReviewItem = params => {
+    console.log("Parameters=>", params);
     return (
       <div>
-        <AddReview />
+        <AddReview
+          itemId={params.location.state.itemId}
+          name={params.location.state.name}
+        />
       </div>
     );
   };

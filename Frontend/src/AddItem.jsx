@@ -95,6 +95,7 @@ class UnconnectedAddItem extends Component {
             type="text"
             value={this.state.name}
             onChange={this.handleChangeName}
+            required
           />
           <p>Price: </p>
           <input
@@ -103,6 +104,7 @@ class UnconnectedAddItem extends Component {
             max="100000000"
             name="price"
             onChange={this.handleChangePrice}
+            required
           />
           <p>Description: </p>
           <textarea
@@ -111,9 +113,10 @@ class UnconnectedAddItem extends Component {
             name="textarea"
             value={this.state.desc}
             onChange={this.handleChangeDesc}
+            required
           />
           <p>Image</p>
-          <input type="file" onChange={this.handleFile} />
+          <input type="file" onChange={this.handleFile} required />
           <p>Quantity:</p>
           <input
             type="number"
@@ -121,6 +124,7 @@ class UnconnectedAddItem extends Component {
             max="100000000"
             name="quantity"
             onChange={this.handleChangeQuantity}
+            required
           />
           <p />
           <input type="submit" value="Add" />

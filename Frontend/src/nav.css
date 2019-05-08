@@ -17,6 +17,7 @@
 
 .nav-button {
   text-decoration: none;
+  color: #999933;
 }
 
 .sell-item,
@@ -26,8 +27,32 @@
 }
 
 .cart-button {
-  border-left: 1px solid grey;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cart-link {
+  border-left: 1px solid grey;
+  padding-left: 5px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2px;
+  margin-top: 0px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-button {
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2px;
 }

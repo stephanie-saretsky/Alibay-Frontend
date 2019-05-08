@@ -23,8 +23,17 @@ class UnconnectedNavBar extends Component {
     console.log("AM I LOGGED IN=>", this.props.login);
     return (
       <div className="bar">
-        <img src="/logo.png" height="80px" />
+        <Link to={"/"}>
+          <img src="/logo.png" height="80px" />
+        </Link>
         <ul className="bar-items">
+          <li className="dropdown">
+            <button className="drop-button">Choose</button>
+            <div className="dropdown-content">
+              <Link>Tea</Link>
+              <Link>Coffee</Link>
+            </div>
+          </li>
           <li className="sell-item">
             <Link to={"/add-item"} className="nav-button">
               Sell Item
@@ -36,7 +45,7 @@ class UnconnectedNavBar extends Component {
             </button>
           </li>
           <li className="cart-button">
-            <Link to={"/cart"}>
+            <Link to={"/cart"} className="cart-link">
               <img className="cart-image" src={"/cart.png"} />
             </Link>
           </li>

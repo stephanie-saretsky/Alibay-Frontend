@@ -101,6 +101,8 @@ body {
   font-size: 18px;
 }
 
+/* DETAILS PAGE */
+
 .item-card {
   display: flex;
   flex-direction: column;
@@ -116,6 +118,12 @@ body {
   padding: 20px;
   background-color: white;
   font-size: 18px;
+}
+
+.itemPhoto {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
 }
 
 /* .addToCartButton {

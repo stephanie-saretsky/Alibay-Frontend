@@ -58,7 +58,7 @@ class unconnectedTea extends Component {
     return (
       <div>
         <div>
-          <h1 className="header">Tea</h1>
+          <h1 className="header">Our Tea Selections</h1>
           <div className="wrap">
             <form className="search" onSubmit={this.handleSubmit}>
               <input

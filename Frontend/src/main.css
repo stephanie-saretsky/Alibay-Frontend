@@ -53,6 +53,7 @@ body {
   display: flex;
   font-family: "Italianno", cursive;
   font-size: 65pt;
+  justify-content: center;
 }
 
 .item-photo {

@@ -21,7 +21,7 @@ class UnconnectedAddReview extends Component {
     console.log("Add a revew to an item form submitted");
     let data = new FormData();
     data.append("review", this.state.desc);
-    data.append("ItemId", this.props.itemId);
+    data.append("itemId", this.props.itemId);
     fetch(path + "add-review-item", {
       method: "POST",
       body: data,

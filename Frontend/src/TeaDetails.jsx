@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
+import AddReview from "./AddReview.jsx";
 let path = "http://localhost:4000/";
 
 class TeaDetails extends Component {
@@ -32,24 +33,34 @@ class TeaDetails extends Component {
   render = () => {
     console.log("PROPS=>", this.props);
     return (
-      <div className="item-card">
-        <img className="item-photo" src={this.props.item.image} />
-        <h3>{this.props.item.name}</h3>
-        <p>{"Quantity: " + this.props.item.quantity}</p>
-        <div>
+      <div>
+        <div className="item-card">
+          <img className="item-photo" src={this.props.item.image} />
+          <h3>{this.props.item.name}</h3>
+          <p>{"Quantity: " + this.props.item.quantity}</p>
+          <div>
+            <br />
+            <p>
+              <em>{this.props.item.description}</em>
+            </p>
+          </div>
           <br />
-          <p>
-            <em>{this.props.item.description}</em>
-          </p>
+          <div>{"Price: " + this.props.item.price + " $"}</div>
+          <br />
+          <div>
+            <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
+          </div>
+          <br />
+          <button className="cart-button" onClick={this.addToCart}>
+            Add To Cart
+          </button>
         </div>
-        <br />
-        <div>{"Price: " + this.props.item.price + " $"}</div>
-        <br />
-        <div>
-          <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
-        </div>
-        <br />
         <h4>Reviews:</h4>
+        <div>
+          <Link to={"/add-review-item"} className="nav-button">
+            Add a review
+          </Link>
+        </div>
         {this.props.reviews.map(rev => (
           <div>
             <Review
@@ -61,9 +72,6 @@ class TeaDetails extends Component {
             <br />
           </div>
         ))}
-        <button className="cart-button" onClick={this.addToCart}>
-          Add To Cart
-        </button>
       </div>
     );
   };

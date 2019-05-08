@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 let path = "http://localhost:4000/";
 
-class UnconnectedAddItem extends Component {
+class UnconnectedAddReview extends Component {
   constructor(props) {
     super(props);
     this.state = {
       desc: "",
       name: "",
-      price: "",
       quantity: ""
     };
   }

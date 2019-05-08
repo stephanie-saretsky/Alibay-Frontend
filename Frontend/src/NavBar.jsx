@@ -24,26 +24,23 @@ class UnconnectedNavBar extends Component {
     return (
       <div className="bar">
         <img src="/logo.png" height="80px" />
-        <div>
-          <Link to={"/add-item"} className="nav-button">
-            Add Item
-          </Link>
-
-          {/* ADD DROPDOWN MENU - coffee and tea
-
-    // ADD LOGO
-    // <div>
-    //     <img src= "logo.png" />
-    // </div> */}
-
-          <Link to={"/cart"} className="nav-button">
-            <img className="cart-button" src={"/cart button.png"} />
-          </Link>
-
-          <button className="logout-button" onClick={this.logout}>
-            Log out
-          </button>
-        </div>
+        <ul className="bar-items">
+          <li className="sell-item">
+            <Link to={"/add-item"} className="nav-button">
+              Sell Item
+            </Link>
+          </li>
+          <li className="logout">
+            <button className="logout-button" onClick={this.logout}>
+              Log out
+            </button>
+          </li>
+          <li className="cart-button">
+            <Link to={"/cart"}>
+              <img className="cart-image" src={"/cart.png"} />
+            </Link>
+          </li>
+        </ul>
       </div>
     );
   };

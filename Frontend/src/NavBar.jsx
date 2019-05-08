@@ -19,6 +19,14 @@ class UnconnectedNavBar extends Component {
     // this.props.renderLogin();
   };
 
+  cartGreen = event => {
+    event.target.src = "/cart-green.png";
+  };
+
+  cartBlack = event => {
+    event.target.src = "/cart.png";
+  };
+
   render = () => {
     console.log("AM I LOGGED IN=>", this.props.login);
     return (
@@ -50,7 +58,12 @@ class UnconnectedNavBar extends Component {
           </li>
           <li className="cart-button">
             <Link to={"/cart"} className="cart-link">
-              <img className="cart-image" src={"/cart.png"} />
+              <img
+                onMouseOver={this.cartGreen}
+                onMouseOut={this.cartBlack}
+                className="cart-image"
+                src={"/cart.png"}
+              />
             </Link>
           </li>
         </ul>

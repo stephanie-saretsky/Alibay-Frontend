@@ -23,6 +23,7 @@ class Seller extends Component {
         </ul>
         <h3>On sale:</h3>
         <br />
+        <h4>Teas</h4>
         <ul>
           {this.props.tea.map(tea => (
             <div>
@@ -31,6 +32,21 @@ class Seller extends Component {
                   <strong>{tea.name}</strong>
                 </Link>{" "}
                 : {tea.description}
+              </p>
+              <br />
+            </div>
+          ))}
+        </ul>
+        <br />
+        <h4>Coffees</h4>
+        <ul>
+          {this.props.coffee.map(coffee => (
+            <div>
+              <p>
+                <Link to={"/coffee/" + coffee._id}>
+                  <strong>{coffee.name}</strong>
+                </Link>
+                : {coffee.description}
               </p>
               <br />
             </div>

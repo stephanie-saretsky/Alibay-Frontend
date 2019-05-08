@@ -15,8 +15,8 @@ class UnconnectedNavBar extends Component {
         console.log("logged out", body);
       });
     this.props.dispatch({ type: "logout-success" });
-    // this.props.renderLogin();
     this.props.history.push("/");
+    // this.props.renderLogin();
   };
 
   render = () => {

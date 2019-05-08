@@ -10,13 +10,16 @@ class Main extends Component {
 
   render = () => {
     return (
-      <div className="container">
-        <Link to={"/coffee"} className="main-button">
-          <img className="main-img" src={"/coffee v1.png"} />
-        </Link>
-        <Link to={"/tea"} className="main-button">
-          <img className="main-img" src={"/tea v1.png"} />
-        </Link>
+      <div>
+        <h1>Welcome to blabbla</h1>
+        <div className="container">
+          <Link to={"/coffee"} className="main-button">
+            <img className="main-img" src={"/coffee v1.png"} />
+          </Link>
+          <Link to={"/tea"} className="main-button">
+            <img className="main-img" src={"/tea v1.png"} />
+          </Link>
+        </div>
       </div>
     );
   };

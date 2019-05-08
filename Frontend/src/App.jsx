@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import "./main.css";
+import "./footer.css";
 import Login from "./Login.jsx";
 import { connect } from "react-redux";
 import Signup from "./Signup.jsx";
@@ -251,6 +252,7 @@ class UnconnectedApp extends Component {
       <div>
         <BrowserRouter>
           <NavBar renderLogin={this.renderLogin} />
+
           <Route exact={true} path="/cart" render={this.renderCart} />
           <Route exact={true} path="/add-item" render={this.renderItem} />
           <Route
@@ -271,6 +273,11 @@ class UnconnectedApp extends Component {
           <Route exact={true} path="/signup" render={this.renderSignup} />
           <Route exact={true} path="/login" render={this.renderLogin} />
           <Route exact={true} path="/" render={this.renderLogin} />
+          <footer>
+            <section>
+              <div>Contact</div>
+            </section>
+          </footer>
         </BrowserRouter>
       </div>
     );

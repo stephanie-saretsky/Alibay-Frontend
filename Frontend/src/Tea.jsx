@@ -77,6 +77,7 @@ class unconnectedTea extends Component {
                 <div className="list-item-card">
                   <img className="item-photo" src={tea.image} />
                   <h3>{tea.name}</h3>
+                  <br />
                   <p>
                     <Link to={"tea/" + tea._id}>More details</Link>
                   </p>

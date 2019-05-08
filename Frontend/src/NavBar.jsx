@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./main.css";
+import { withRouter } from "react-router-dom";
 let path = "http://localhost:4000/";
 
 class UnconnectedNavBar extends Component {
@@ -14,9 +15,12 @@ class UnconnectedNavBar extends Component {
         console.log("logged out", body);
       });
     this.props.dispatch({ type: "logout-success" });
+    // this.props.renderLogin();
+    this.props.history.push("/");
   };
 
   render = () => {
+    console.log("AM I LOGGED IN=>", this.props.login);
     return (
       <div>
         <div>
@@ -24,38 +28,32 @@ class UnconnectedNavBar extends Component {
             Add Item
           </Link>
         </div>
-        {
-          /* // ADD DROPDOWN MENU - coffee and tea
+
+        {/* ADD DROPDOWN MENU - coffee and tea
 
     // ADD LOGO
     // <div>
     //     <img src= "logo.png" />
-    // </div>
+    // </div> */}
 
-    // ADD ITEM
-        }
-     
-        <Link to={"/add-item"} className="nav-button">
-        </Link>
-   
-
-    CART BUTTON */
-
-          <div>
-            <Link to={"/cart"}>
-              <img className="cart-button" src={"/cart button.jpg"} />
-            </Link>
-          </div>
-          /* LOG OUT BUTTON */
-        }
         <div>
-          <button onClick={this.logout}>Log out</button>
+          <Link to={"/cart"}>
+            <img className="cart-button" src={"/cart button.jpg"} />
+          </Link>
+        </div>
+
+        <div>
+          {this.props.login && <button onClick={this.logout}>Log out</button>}
         </div>
       </div>
     );
   };
 }
 
-let NavBar = connect()(UnconnectedNavBar);
+let mapStateToProps = state => {
+  return { login: state.login };
+};
 
-export default NavBar;
+let NavBar = connect(mapStateToProps)(UnconnectedNavBar);
+
+export default withRouter(NavBar);

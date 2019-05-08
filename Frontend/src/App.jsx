@@ -224,7 +224,7 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <BrowserRouter>
-          <NavBar />
+          <NavBar renderLogin={this.renderLogin} />
           <Route exact={true} path="/add-item" render={this.renderItem} />
           <Route exact={true} path="/coffee" render={this.coffee} />
           <Route exact={true} path="/tea" render={this.tea} />

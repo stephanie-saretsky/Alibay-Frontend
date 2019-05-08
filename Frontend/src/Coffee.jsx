@@ -56,7 +56,6 @@ class unconnectedCoffee extends Component {
   render = () => {
     return (
       <div>
-        <h2>Coffees:</h2>
         <div className="wrap">
           <form className="search" onSubmit={this.handleSubmit}>
             <input

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
+import swal from "sweetalert";
 let path = "http://localhost:4000/";
 
 class CoffeeDetails extends Component {
@@ -23,7 +24,12 @@ class CoffeeDetails extends Component {
         console.log(responseBody, "RESPONSE BODY");
         let body = JSON.parse(responseBody);
         if (body.success) {
-          alert("Added to cart!");
+          swal({
+            title: "Success!",
+            text: "Your coffee was added to your cart!",
+            icon: "success",
+            button: "Keep Shopping"
+          });
         }
       })
       .catch(err => console.log(err));

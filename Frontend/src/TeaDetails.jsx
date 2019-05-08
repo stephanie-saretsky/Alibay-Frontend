@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./main.css";
-import AddReview from "./AddReview.jsx";
 let path = "http://localhost:4000/";
 
 class TeaDetails extends Component {
@@ -77,6 +76,7 @@ class TeaDetails extends Component {
               reviewer={rev.reviewer.name}
               reviewerId={rev.reviewer.id}
               itemId={rev.itemId}
+              rating={rev.rating}
             />
             <br />
           </div>

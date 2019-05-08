@@ -22,7 +22,7 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
 }
 .main-button {
   background-color: #f5f6f8;
@@ -60,6 +60,7 @@ h1 {
   font-family: "Italianno", cursive;
   font-size: 65pt;
   justify-content: center;
+  margin-top: 45px;
 }
 
 .item-photo {

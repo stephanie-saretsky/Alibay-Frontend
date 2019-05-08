@@ -8,10 +8,16 @@ body {
   margin: 0;
 }
 
-h1 {
-  color: rgb(204, 153, 51);
-}
 /* MAIN MENU */
+
+.header {
+  display: flex;
+  font-family: "Savoye LET", cursive;
+  font-size: 65pt;
+  justify-content: center;
+  margin-top: 45px;
+  color: #999933;
+}
 
 .global {
   min-height: 90vh;
@@ -54,14 +60,6 @@ h1 {
 }
 
 /* ITEMS  */
-
-.header {
-  display: flex;
-  font-family: "Savoye LET", cursive;
-  font-size: 65pt;
-  justify-content: center;
-  margin-top: 45px;
-}
 
 .item-photo {
   width: 300px;

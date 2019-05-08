@@ -58,33 +58,35 @@ class CoffeeDetails extends Component {
             Add To Cart
           </button>
         </div>
-        <h4>Reviews:</h4>
-        <div>
-          <Link
-            to={{
-              pathname: "/add-review-item",
-              state: {
-                itemId: this.props.item._id,
-                name: this.props.item.name
-              }
-            }}
-            className="nav-button"
-          >
-            Add a review
-          </Link>
-        </div>
-        {this.props.reviews.map(rev => (
+        <div className="reviews">
+          <h3>Reviews:</h3>
+          {this.props.reviews.map(rev => (
+            <div>
+              <Review
+                description={rev.review}
+                reviewer={rev.reviewer.name}
+                reviewerId={rev.reviewer.id}
+                itemId={rev.itemId}
+                rating={rev.rating}
+              />
+              <br />
+            </div>
+          ))}
           <div>
-            <Review
-              description={rev.review}
-              reviewer={rev.reviewer.name}
-              reviewerId={rev.reviewer.id}
-              itemId={rev.itemId}
-              rating={rev.rating}
-            />
-            <br />
+            <Link
+              to={{
+                pathname: "/add-review-item",
+                state: {
+                  itemId: this.props.item._id,
+                  name: this.props.item.name
+                }
+              }}
+              className="nav-button"
+            >
+              Add a review
+            </Link>
           </div>
-        ))}
+        </div>
       </div>
     );
   };

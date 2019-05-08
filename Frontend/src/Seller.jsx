@@ -37,7 +37,7 @@ class Seller extends Component {
   render() {
     console.log("PROPS=>", this.props);
     return (
-      <div>
+      <div className="seller">
         <h2>{this.props.seller.username + " "}</h2>
         <p>
           <span>{this.renderRatingTwo(this.renderAverage())}</span>

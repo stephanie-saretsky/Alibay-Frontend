@@ -229,3 +229,12 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.reviews {
+  margin: 10%;
+  line-height: 20pt;
+}
+
+.seller {
+  margin: 5%;
+}

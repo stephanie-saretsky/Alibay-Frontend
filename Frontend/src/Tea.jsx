@@ -57,19 +57,21 @@ class unconnectedTea extends Component {
   render = () => {
     return (
       <div>
-        <h2>Teas:</h2>
-        <div className="wrap">
-          <form className="search" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              className="searchTerm"
-              value={this.state.searchInput}
-              onChange={this.handleChange}
-              placeholder="Search for tea"
-            />
-            <br />
-            <input className="searchButton" type="submit" value="Search" />
-          </form>
+        <div className="header">
+          <h1>Tea</h1>
+          <div className="wrap">
+            <form className="search" onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                className="searchTerm"
+                value={this.state.searchInput}
+                onChange={this.handleChange}
+                placeholder="Search for tea"
+              />
+              <br />
+              <input className="searchButton" type="submit" value="Search" />
+            </form>
+          </div>
         </div>
         <div>
           <ul className="list-item-container">

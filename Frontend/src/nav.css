@@ -1,0 +1,33 @@
+.cart-image {
+  height: 30px;
+  width: 50px;
+}
+
+.bar {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1px solid grey;
+}
+
+.bar-items {
+  display: flex;
+}
+
+.nav-button {
+  text-decoration: none;
+}
+
+.sell-item,
+.logout,
+.cart-button {
+  padding: 30px;
+}
+
+.cart-button {
+  border-left: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

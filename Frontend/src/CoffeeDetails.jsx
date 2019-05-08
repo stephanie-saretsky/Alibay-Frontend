@@ -48,7 +48,7 @@ class CoffeeDetails extends Component {
           <br />
           <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
           <br />
-          <button className="cart-button" onClick={this.addToCart}>
+          <button className="addToCartButton" onClick={this.addToCart}>
             Add To Cart
           </button>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import main from "./main.css";
+import "./cart.css";
 let path = "http://localhost:4000/";
 let stripe = Stripe("pk_test_o0jp2CyctV96lKqFAIdFE4i0008Y2G9odT");
 
@@ -58,28 +58,28 @@ class Cart extends Component {
       method: "POST",
       credentials: "include",
       body: data
-    });
-    // .then(header => {
-    //   return header.text();
-    // })
-    // .then(body => {
-    //   let parsed = JSON.parse(body);
-    //   if (parsed.success) {
-    //     fetch(path + "cart", {
-    //       method: "GET",
-    //       credentials: "include"
-    //     })
-    //       .then(x => {
-    //         return x.text();
-    //       })
-    //       .then(responseBody => {
-    //         let body = JSON.parse(responseBody);
-    //         if (body.success) {
-    //           this.setState({ items: body.items });
-    //         }
-    //       });
-    //   }
-    // });
+    })
+      .then(header => {
+        return header.text();
+      })
+      .then(body => {
+        let parsed = JSON.parse(body);
+        if (parsed.success) {
+          fetch(path + "cart", {
+            method: "GET",
+            credentials: "include"
+          })
+            .then(x => {
+              return x.text();
+            })
+            .then(responseBody => {
+              let body = JSON.parse(responseBody);
+              if (body.success) {
+                this.setState({ items: body.items });
+              }
+            });
+        }
+      });
   };
 
   render = () => {
@@ -88,27 +88,35 @@ class Cart extends Component {
       optionalEmpty = <div>You have no items in your shopping cart</div>;
     }
     return (
-      <div>
-        {optionalEmpty}
-        <ul>
-          {this.state.items.map(item => {
-            return (
-              <li>
-                <img src={item.image} height="50px" />
-                <h3>{item.name}</h3>
-                <p>{"$" + item.price + ".00"}</p>
-                <button
-                  onClick={() => {
-                    this.removeItem(item._id);
-                  }}
-                >
-                  Remove from Cart
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <button onClick={this.checkoutHandler}>Checkout</button>
+      <div className="cart">
+        <div className="cart-items">
+          {optionalEmpty}
+          <ul>
+            {this.state.items.map(item => {
+              return (
+                <li>
+                  <div className="item">
+                    <img src={item.image} height="100px" />
+                    <div>
+                      <h3 className="name">{item.name}</h3>
+                      <p>{"$" + item.price + ".00"}</p>
+                      <button
+                        onClick={() => {
+                          this.removeItem(item._id);
+                        }}
+                      >
+                        Remove from Cart
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          <button onClick={this.checkoutHandler}>Checkout</button>
+        </div>
       </div>
     );
   };

@@ -13,6 +13,7 @@ import Seller from "./Seller.jsx";
 import AddItem from "./AddItem.jsx";
 import NavBar from "./NavBar.jsx";
 import Cart from "./Cart.jsx";
+import AddReview from "./AddReview.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
@@ -46,6 +47,14 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <AddItem />
+      </div>
+    );
+  };
+
+  renderReviewItem = () => {
+    return (
+      <div>
+        <AddReview />
       </div>
     );
   };
@@ -227,6 +236,11 @@ class UnconnectedApp extends Component {
           <NavBar renderLogin={this.renderLogin} />
           <Route exact={true} path="/cart" render={this.renderCart} />
           <Route exact={true} path="/add-item" render={this.renderItem} />
+          <Route
+            exact={true}
+            path="/add-review-item"
+            render={this.renderReviewItem}
+          />
           <Route exact={true} path="/coffee" render={this.coffee} />
           <Route exact={true} path="/tea" render={this.tea} />
           <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />

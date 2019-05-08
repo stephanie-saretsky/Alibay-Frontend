@@ -125,8 +125,8 @@ body {
   cursor: pointer;
   color: #3a8a9e;
   font-family: Arial;
-  font-size: 17px;
-  padding: 7px 25px;
+  font-size: 14px;
+  padding: 7px 20px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #e1e2ed;
 }
@@ -154,4 +154,46 @@ body {
 /* FORM PAGE */
 
 .form-box {
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid rgb(147, 145, 147);
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: rgb(147, 145, 147);
+}
+
+.searchTerm:focus {
+  color: #7d6d98;
+}
+
+.searchButton {
+  width: 80px;
+  height: 36px;
+  border: 1px solid rgb(147, 145, 147);
+  background: rgb(147, 145, 147);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 30%;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

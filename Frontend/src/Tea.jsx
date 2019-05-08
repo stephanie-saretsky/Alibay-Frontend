@@ -58,16 +58,17 @@ class unconnectedTea extends Component {
     return (
       <div>
         <h2>Teas:</h2>
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <div className="wrap">
+          <form className="search" onSubmit={this.handleSubmit}>
             <input
               type="text"
+              className="searchTerm"
               value={this.state.searchInput}
               onChange={this.handleChange}
               placeholder="Search for tea"
             />
             <br />
-            <input className="searchSubmit" type="submit" value="Search" />
+            <input className="searchButton" type="submit" value="Search" />
           </form>
         </div>
         <div>
@@ -75,12 +76,11 @@ class unconnectedTea extends Component {
             {this.state.teas.map(tea => {
               return (
                 <div className="list-item-card">
-                  <img className="item-photo" src={tea.image} />
+                  <Link to={"tea/" + tea._id}>
+                    <img className="item-photo" src={tea.image} />
+                  </Link>
                   <h3>{tea.name}</h3>
                   <br />
-                  <p>
-                    <Link to={"tea/" + tea._id}>More details</Link>
-                  </p>
                 </div>
               );
             })}

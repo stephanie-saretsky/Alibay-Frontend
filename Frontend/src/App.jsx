@@ -14,6 +14,7 @@ import AddItem from "./AddItem.jsx";
 import NavBar from "./NavBar.jsx";
 import Cart from "./Cart.jsx";
 import AddReview from "./AddReview.jsx";
+import AddReviewSeller from "./AddReviewSeller.jsx";
 let path = "http://localhost:4000/";
 
 class UnconnectedApp extends Component {
@@ -57,6 +58,18 @@ class UnconnectedApp extends Component {
       <div>
         <AddReview
           itemId={params.location.state.itemId}
+          name={params.location.state.name}
+        />
+      </div>
+    );
+  };
+
+  renderAddReviewSeller = params => {
+    console.log("Parameters=>", params);
+    return (
+      <div>
+        <AddReviewSeller
+          sellerId={params.location.state.sellerId}
           name={params.location.state.name}
         />
       </div>
@@ -244,6 +257,11 @@ class UnconnectedApp extends Component {
             exact={true}
             path="/add-review-item"
             render={this.renderReviewItem}
+          />
+          <Route
+            exact={true}
+            path="/add-review-seller"
+            render={this.renderAddReviewSeller}
           />
           <Route exact={true} path="/coffee" render={this.coffee} />
           <Route exact={true} path="/tea" render={this.tea} />

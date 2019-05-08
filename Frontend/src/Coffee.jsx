@@ -57,28 +57,28 @@ class unconnectedCoffee extends Component {
     return (
       <div>
         <h2>Coffees:</h2>
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <div className="wrap">
+          <form className="search" onSubmit={this.handleSubmit}>
             <input
               type="text"
+              className="searchTerm"
               value={this.state.searchInput}
               onChange={this.handleChange}
               placeholder="Search for coffee"
             />
             <br />
-            <input className="searchSubmit" type="submit" value="Search" />
+            <input className="searchButton" type="submit" value="Search" />
           </form>
         </div>
         <ul className="list-item-container">
           {this.state.coffees.map(coffee => {
             return (
               <div className="list-item-card">
-                <img className="item-photo" src={coffee.image} />
+                <Link to={"/coffee/" + coffee._id}>
+                  <img className="item-photo" src={coffee.image} />
+                </Link>
                 <h3>{coffee.name}</h3>
                 <br />
-                <p>
-                  <Link to={"/coffee/" + coffee._id}>More details</Link>
-                </p>
               </div>
             );
           })}

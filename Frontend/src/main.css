@@ -51,6 +51,9 @@ body {
 
 .header {
   display: flex;
+  font-family: "Italianno", cursive;
+  font-size: 65pt;
+  justify-content: center;
 }
 
 .item-photo {
@@ -161,7 +164,22 @@ body {
 
 /* FORM PAGE */
 
-.form-box {
+.form-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px;
+  border-width: thin;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  margin: 36px auto;
+  padding: 20px;
+  background-color: white;
+  font-size: 18px;
+  line-height: 30pt;
 }
 
 .search {

@@ -83,8 +83,10 @@ class UnconnectedAddItem extends Component {
   render = () => {
     console.log("TYPE=>", this.props.type);
     return (
-      <div className="form-box">
-        <h2> Add {this.state.type}</h2>
+      <div className="form-card">
+        <h2>
+          <u>Add {this.state.type}</u>
+        </h2>
         <form onSubmit={this.handleSubmit}>
           <select name="Choice" onChange={this.handleChange}>
             <option value="tea">Tea</option>

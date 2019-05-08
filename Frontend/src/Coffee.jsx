@@ -73,12 +73,11 @@ class unconnectedCoffee extends Component {
           {this.state.coffees.map(coffee => {
             return (
               <div className="list-item-card">
-                <img className="item-photo" src={coffee.image} />
+                <Link to={"/coffee/" + coffee._id}>
+                  <img className="item-photo" src={coffee.image} />
+                </Link>
                 <h3>{coffee.name}</h3>
                 <br />
-                <p>
-                  <Link to={"/coffee/" + coffee._id}>More details</Link>
-                </p>
               </div>
             );
           })}

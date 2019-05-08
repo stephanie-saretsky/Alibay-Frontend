@@ -43,7 +43,11 @@ class UnconnectedNavBar extends Component {
         </div>
 
         <div>
-          {this.props.login && <button onClick={this.logout}>Log out</button>}
+          {this.props.login && (
+            <button className="addToCartButton" onClick={this.logout}>
+              Log out
+            </button>
+          )}
         </div>
       </div>
     );

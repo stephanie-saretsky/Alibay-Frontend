@@ -28,10 +28,14 @@ class UnconnectedNavBar extends Component {
         </Link>
         <ul className="bar-items">
           <li className="dropdown">
-            <button className="drop-button">Choose</button>
+            <button className="drop-button">Products</button>
             <div className="dropdown-content">
-              <Link>Tea</Link>
-              <Link>Coffee</Link>
+              <Link className="drop-link" to={"/tea"}>
+                Tea
+              </Link>
+              <Link className="drop-link" to={"/coffee"}>
+                Coffee
+              </Link>
             </div>
           </li>
           <li className="sell-item">
@@ -41,7 +45,7 @@ class UnconnectedNavBar extends Component {
           </li>
           <li className="logout">
             <button className="logout-button" onClick={this.logout}>
-              Log out
+              Logout
             </button>
           </li>
           <li className="cart-button">

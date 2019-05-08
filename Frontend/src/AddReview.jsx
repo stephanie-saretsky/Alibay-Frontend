@@ -7,9 +7,7 @@ class UnconnectedAddReview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      desc: "",
-      name: "",
-      quantity: ""
+      desc: ""
     };
   }
 
@@ -38,6 +36,7 @@ class UnconnectedAddReview extends Component {
         console.log("parsed body", body);
         if (body.success) {
           alert("Review Added");
+          this.setState({ desc: "" });
           return;
         }
         alert("Please, make sure you wrote everything");

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 let path = "http://localhost:4000/";
 
 class UnconnectedAddReviewSeller extends Component {
@@ -42,11 +43,21 @@ class UnconnectedAddReviewSeller extends Component {
         let body = JSON.parse(responseBody);
         console.log("parsed body", body);
         if (body.success) {
-          alert("Review Added");
+          swal({
+            title: "Thank you!",
+            text: "Our sellers appreciate your reviews!",
+            icon: "success",
+            button: "Keep Shopping"
+          });
           this.setState({ desc: "" });
           return;
         }
-        alert("Please, make sure you wrote everything");
+        swal({
+          title: "Oops!",
+          text: "Please make sure you fill out all forms",
+          icon: "error",
+          button: "Return"
+        });
         return;
       });
   };

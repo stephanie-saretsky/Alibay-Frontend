@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 let path = "http://localhost:4000/";
 
 class UnconnectedAddItem extends Component {
@@ -72,10 +73,20 @@ class UnconnectedAddItem extends Component {
         let body = JSON.parse(responseBody);
         console.log("parsed body", body);
         if (body.success) {
-          alert("Item Added");
+          swal({
+            title: "Success!",
+            text: "You've added an item to our marketplace!",
+            icon: "success",
+            button: "Return"
+          });
           return;
         }
-        alert("Please, make sure you added everything");
+        swal({
+          title: "Oops!",
+          text: "You forgot to fill out a form field!",
+          icon: "error",
+          button: "Fix It"
+        });
         return;
       });
   };

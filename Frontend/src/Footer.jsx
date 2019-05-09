@@ -11,7 +11,7 @@ class Footer extends Component {
           <p>Contact</p>
         </div>
         <div className="image">
-          <img src="/logo.png" height="50px" />
+          <img className="imageOne" src="/logo.png" height="50px" />
         </div>
         <div className="flex">
           <div>

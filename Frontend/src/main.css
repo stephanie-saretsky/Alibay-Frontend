@@ -32,7 +32,7 @@ body {
   height: 60vh;
 }
 .main-button {
-  /* background-color: #f5f6f8; */
+  background-color: #f5f6f8;
   width: 500px;
   height: 336px;
 }
@@ -46,7 +46,7 @@ body {
 .main-button:focus {
   outline: 1px solid rgb(9, 9, 9);
   outline-offset: -4px;
-  /* background: #050505; */
+  background: #050505;
 }
 
 .main-button:active {

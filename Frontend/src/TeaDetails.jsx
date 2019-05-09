@@ -80,7 +80,7 @@ class TeaDetails extends Component {
             </p>
           </div>
           <br />
-          <div>{"Price: " + this.props.item.price + " $"}</div>
+          <div>{"Price: $" + this.props.item.price + ".00"}</div>
           <br />
           <div className="item-buttons">
             <Link className="button" to={"/seller/" + this.props.item.sellerId}>
@@ -93,9 +93,7 @@ class TeaDetails extends Component {
           </div>
         </div>
         <div className="reviews">
-          <h3>
-            <u>Reviews</u>
-          </h3>
+          <h3 className="review-title">Reviews:</h3>
           {this.props.reviews.map(rev => (
             <div>
               <Review

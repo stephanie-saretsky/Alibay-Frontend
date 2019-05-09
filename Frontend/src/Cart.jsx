@@ -102,7 +102,11 @@ class Cart extends Component {
                 return (
                   <li>
                     <div className="item-cart">
-                      <img src={item.image} height="100px" />
+                      <img
+                        className="image-cart"
+                        src={item.image}
+                        height="100px"
+                      />
                       <div className="cart-text">
                         <h3 className="name">{item.name}</h3>
                         <p>{"$" + item.price + ".00"}</p>

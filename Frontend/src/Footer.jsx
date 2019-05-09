@@ -12,7 +12,10 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    height: "300px",
+    width: "400px",
+    backgroundColor: "rgb(204, 153, 51, 0.4)"
   }
 };
 
@@ -32,10 +35,6 @@ class Footer extends Component {
     this.setState({ modalIsOpen: false });
   };
 
-  // afterOpenModal = () => {
-  //   this.subtitle.style.color = "#f00";
-  // };
-
   render = () => {
     return (
       <footer id="footer" className="flex">
@@ -46,15 +45,14 @@ class Footer extends Component {
             </a>
             <Modal
               isOpen={this.state.modalIsOpen}
-              // onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
               style={customStyles}
               contentLabel="Example Modal"
             >
-              <div>
-                <h2>Hello</h2>
+              <div className="contact">
+                <h2>Contact</h2>
+                <p>I am a modal</p>
                 <button onClick={this.closeModal}>close</button>
-                <div>I am a modal</div>
               </div>
             </Modal>
           </p>

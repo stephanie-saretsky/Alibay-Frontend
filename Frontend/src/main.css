@@ -157,7 +157,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-*/ .reviews {
+
+.reviews {
   margin: 10%;
   line-height: 20pt;
 }

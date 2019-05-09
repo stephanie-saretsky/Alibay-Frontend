@@ -46,7 +46,8 @@ class UnconnectedSignup extends Component {
             title: "Oops!",
             text: "That username is taken already",
             icon: "error",
-            button: "Choose another name"
+            button: "Choose another name",
+            confirmButtonColor: "#999933"
           });
           return;
         }

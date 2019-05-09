@@ -11,19 +11,23 @@ class Footer extends Component {
           <div className="image">
             <img src="/logo.png" height="40px" />
             <hr />
-            <p>Contact</p>
+            <p>Contact us</p>
           </div>
+          <hr />
           <div className="flex">
-            <a
-              href={"http://www.facebook.com/pages/Rishi-Tea/39035256828"}
-              target={"_blank"}
-            >
-              <img src={"/facebook.png"} height="20px" />
-            </a>
-            {"   "}
-            <a href={"http://twitter.com/RishiTea"} target={"_blank"}>
-              <img src={"/twitter.png"} height="20px" />
-            </a>
+            <div>
+              <a
+                href={"http://www.facebook.com/pages/Rishi-Tea/39035256828"}
+                target={"_blank"}
+              >
+                <img src={"/facebook.png"} height="20px" />
+              </a>
+            </div>
+            <div>
+              <a href={"http://twitter.com/RishiTea"} target={"_blank"}>
+                <img src={"/twitter.png"} height="20px" />
+              </a>
+            </div>
           </div>
         </section>
       </footer>

@@ -5,6 +5,17 @@ import "./css/footer.css";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
+
 class Footer extends Component {
   constructor() {
     super();
@@ -13,27 +24,33 @@ class Footer extends Component {
     };
   }
 
-  openModal() {
+  openModal = () => {
     this.setState({ modalIsOpen: true });
-  }
+  };
 
-  closeModal() {
+  closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
 
-  afterOpenModal() {
-    this.subtitle.style.color = "#f00";
-  }
+  // afterOpenModal = () => {
+  //   this.subtitle.style.color = "#f00";
+  // };
 
   render = () => {
     return (
       <footer id="footer" className="flex">
         <div className="para">
           <p>
-            <Link className="link" onClick={this.openModal}>
+            <a className="link" onClick={this.openModal}>
               Contact
-            </Link>
-            <Modal isOpen={this.state.modalIsOpen}>
+            </a>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              // onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
               <div>
                 <h2>Hello</h2>
                 <button onClick={this.closeModal}>close</button>

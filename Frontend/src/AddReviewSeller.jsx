@@ -133,7 +133,7 @@ class UnconnectedAddReviewSeller extends Component {
               5
             </label>
           </section>
-          <input type="submit" value="Add" />
+          <input className="button" type="submit" value="Add" />
         </form>
       </div>
     );

@@ -40,6 +40,9 @@ class TeaDetails extends Component {
     for (let i = 0; i < x; i++) {
       stars = stars.concat("★");
     }
+    for (let j = 0; j < 5 - x; j++) {
+      stars = stars.concat("✩");
+    }
     return stars;
   };
 

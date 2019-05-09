@@ -160,6 +160,16 @@ body {
   line-height: 20pt;
 }
 
-.seller {
-  margin: 5%;
+.seller-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 36px auto;
+  padding: 20px;
+  background-color: white;
+  font-size: 18px;
+  line-height: 30pt;
 }

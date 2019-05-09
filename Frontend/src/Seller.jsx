@@ -43,27 +43,14 @@ class Seller extends Component {
   render() {
     console.log("PROPS=>", this.props);
     return (
-      <div className="seller">
+      <div className="seller-card">
         <h2>{this.props.seller.username + " "}</h2>
         <p>
           <span>{this.renderRatingTwo(this.renderAverage())}</span>
         </p>
-        <br />
         <hr />
-        <h3>Reviews: </h3>
-        <Link
-          to={{
-            pathname: "/add-review-seller",
-            state: {
-              sellerId: this.props.seller.id,
-              name: this.props.seller.username
-            }
-          }}
-          className="nav-button"
-        >
-          Add a review
-        </Link>
         <br />
+        <h3>Seller Reviews: </h3>
         <ul>
           {this.props.reviews.map(rev => (
             <div>
@@ -76,9 +63,20 @@ class Seller extends Component {
             </div>
           ))}
         </ul>
-        <hr />
-        <h3>On sale:</h3>
+        <Link
+          to={{
+            pathname: "/add-review-seller",
+            state: {
+              sellerId: this.props.seller.id,
+              name: this.props.seller.username
+            }
+          }}
+          className="button"
+        >
+          <b>Add a review</b>
+        </Link>
         <br />
+        <h3>Currently on sale by this seller:</h3>
         <h4>Teas</h4>
         <ul>
           {this.props.tea.map(tea => (

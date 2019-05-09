@@ -62,7 +62,7 @@ class TeaDetails extends Component {
     return (
       <div>
         <div className="item-card">
-          <img className="item-photo" src={this.props.item.image} />
+          <img className="itemPhoto" src={this.props.item.image} />
           <h3>{this.props.item.name}</h3>
           <p>
             <span>{this.renderRatingTwo(this.renderAverage())}</span>

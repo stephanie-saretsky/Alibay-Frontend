@@ -15,7 +15,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     height: "300px",
     width: "400px",
-    backgroundColor: "rgb(204, 153, 51, 0.4)"
+    backgroundColor: "white"
   }
 };
 
@@ -51,8 +51,19 @@ class Footer extends Component {
             >
               <div className="contact">
                 <h2>Contact</h2>
-                <p>I am a modal</p>
-                <button onClick={this.closeModal}>close</button>
+                <ul>
+                  <li>
+                    <strong>Adress</strong>: 1155 Metcalfe St, Montreal, Quebec
+                    H3B 2V6
+                  </li>
+                  <li>
+                    <strong>Phone number</strong>: (+1) 538 407 9856
+                  </li>
+                  <li>
+                    <strong>email</strong>: procaffeinating.gmail.com
+                  </li>
+                </ul>
+                <button onClick={this.closeModal}>Close</button>
               </div>
             </Modal>
           </p>

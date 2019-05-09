@@ -157,7 +157,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-*/ .reviews {
+
+.reviews {
   margin: 10%;
   line-height: 20pt;
 }
@@ -166,8 +167,9 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  text-align: justify;
   max-width: 500px;
   margin: 36px auto;
   padding: 20px;
@@ -175,4 +177,12 @@ body {
   font-size: 18px;
   line-height: 30pt;
   box-shadow: 4px 12px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.rating {
+  align-items: stretch;
+}
+
+.link {
+  color: #999933;
 }

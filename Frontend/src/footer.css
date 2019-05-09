@@ -21,7 +21,7 @@
 
 .flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -38,4 +38,9 @@ hr {
   size: 2px;
   background-color: rgb(204, 153, 51, 0.1);
   padding: 0%;
+}
+
+p {
+  padding: 20px;
+  font-weight: bold;
 }

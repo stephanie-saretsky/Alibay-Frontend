@@ -186,3 +186,11 @@ body {
 .link {
   color: #999933;
 }
+
+@font-face {
+  font-family: "Savoye LET";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Savoye LET Plain"),
+    url("/Savoye LET Plain1.0.woff") format("woff");
+}

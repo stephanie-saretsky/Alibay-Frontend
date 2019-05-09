@@ -78,6 +78,8 @@ class UnconnectedAddItem extends Component {
             text: "You've added an item to our marketplace!",
             icon: "success",
             button: "Return"
+          }).then(function() {
+            window.location = "/";
           });
           return;
         }

@@ -48,6 +48,8 @@ class UnconnectedAddReviewSeller extends Component {
             text: "Our sellers appreciate your reviews!",
             icon: "success",
             button: "Keep Shopping"
+          }).then(function() {
+            window.location = "/";
           });
           this.setState({ desc: "" });
           return;
@@ -65,7 +67,7 @@ class UnconnectedAddReviewSeller extends Component {
   render = () => {
     console.log("Props =>", this.props);
     return (
-      <div className="form-box">
+      <div className="form-card">
         <h2> Add a review for {this.props.name}</h2>
         <form onSubmit={this.handleSubmit}>
           <p>Comment: </p>

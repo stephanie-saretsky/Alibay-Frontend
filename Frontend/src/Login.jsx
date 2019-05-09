@@ -40,7 +40,12 @@ class UnconnectedLogin extends Component {
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         if (!body.success) {
-          alert("login failed");
+          swal({
+            title: "Oops!",
+            text: "Invalid username or password",
+            icon: "error",
+            button: "Try again"
+          });
           return;
         }
         this.props.dispatch({

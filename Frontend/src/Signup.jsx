@@ -42,7 +42,12 @@ class UnconnectedSignup extends Component {
         let body = JSON.parse(responseBody);
         console.log("parsed body", body);
         if (!body.success) {
-          alert("Username taken");
+          swal({
+            title: "Oops!",
+            text: "That username is taken already",
+            icon: "error",
+            button: "Choose another name"
+          });
           return;
         }
         this.props.dispatch({ type: "Login" });

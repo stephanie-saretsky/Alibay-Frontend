@@ -9,6 +9,7 @@
   background-color: white;
   font-size: 18px;
   line-height: 30pt;
+  box-shadow: 4px 12px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .login-inputs-container {
@@ -21,6 +22,14 @@
   margin: 10px;
   font-size: 20px;
   padding: 5px 5px 5px 15px;
+}
+
+.login-inputs:focus::-webkit-input-placeholder {
+  color: #cc9933;
+}
+
+.login-inputs:focus {
+  color: #cc9933;
 }
 
 .login-button {

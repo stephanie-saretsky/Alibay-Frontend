@@ -40,6 +40,9 @@ class TeaDetails extends Component {
     for (let i = 0; i < x; i++) {
       stars = stars.concat("★");
     }
+    for (let j = 0; j < 5 - x; j++) {
+      stars = stars.concat("✩");
+    }
     return stars;
   };
 
@@ -62,7 +65,7 @@ class TeaDetails extends Component {
     return (
       <div>
         <div className="item-card">
-          <img className="item-photo" src={this.props.item.image} />
+          <img className="itemPhoto" src={this.props.item.image} />
           <h3>{this.props.item.name}</h3>
           <p>
             <span>{this.renderRatingTwo(this.renderAverage())}</span>

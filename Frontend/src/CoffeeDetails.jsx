@@ -65,19 +65,27 @@ class CoffeeDetails extends Component {
           </div>
         </div>
         <div className="reviews">
-          <h3>Reviews:</h3>
-          {this.props.reviews.map(rev => (
+          <h3>
+            <u>Reviews</u>
+          </h3>
+          {this.props.reviews.length === 0 ? (
             <div>
-              <Review
-                description={rev.review}
-                reviewer={rev.reviewer.name}
-                reviewerId={rev.reviewer.id}
-                itemId={rev.itemId}
-                rating={rev.rating}
-              />
-              <br />
+              <h4 style={{ padding: "20px" }}>There are no reviews yet!</h4>
             </div>
-          ))}
+          ) : (
+            this.props.reviews.map(rev => (
+              <div>
+                <Review
+                  description={rev.review}
+                  reviewer={rev.reviewer.name}
+                  reviewerId={rev.reviewer.id}
+                  itemId={rev.itemId}
+                  rating={rev.rating}
+                />
+                <br />
+              </div>
+            ))
+          )}
           <br />
           <div>
             <Link

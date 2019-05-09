@@ -8,7 +8,7 @@ class Footer extends Component {
     return (
       <footer id="footer" className="flex">
         <div>
-          <p>Contact</p>
+          <p className="para">Contact</p>
         </div>
         <div className="image">
           <img className="imageOne" src="/logo.png" height="50px" />
@@ -19,12 +19,12 @@ class Footer extends Component {
               href={"http://www.facebook.com/pages/Rishi-Tea/39035256828"}
               target={"_blank"}
             >
-              <img src={"/facebook.png"} height="20px" />
+              <img className="imageOne" src={"/facebook.png"} height="20px" />
             </a>
           </div>
           <div>
             <a href={"http://twitter.com/RishiTea"} target={"_blank"}>
-              <img src={"/twitter.png"} height="20px" />
+              <img className="imageOne" src={"/twitter.png"} height="20px" />
             </a>
           </div>
         </div>

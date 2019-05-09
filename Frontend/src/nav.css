@@ -8,9 +8,9 @@
   margin-bottom: 10px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.1px solid rgb(204, 153, 51);
-  height: 60px;
-  color: rgb(204, 153, 51);
+  border-bottom: 0.1px solid black;
+  height: 90px;
+  color: black;
 }
 
 .bar-items {
@@ -19,7 +19,7 @@
 
 .nav-button {
   text-decoration: none;
-  color: rgb(204, 153, 51);
+  color: black;
   font-size: 16px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .cart-link {
-  border-left: 1px solid rgb(204, 153, 51);
+  border-left: 1px solid black;
   padding-left: 30px;
   padding-right: 25px;
 }
@@ -61,7 +61,7 @@
   margin-top: 0px;
   font-size: 16px;
   cursor: pointer;
-  color: rgb(204, 153, 51);
+  color: black;
 }
 
 .dropdown {
@@ -76,7 +76,7 @@
   border-radius: 2px;
   font-size: 16px;
   cursor: pointer;
-  color: rgb(204, 153, 51);
+  color: black;
 }
 
 .dropdown-content {
@@ -88,7 +88,7 @@
 }
 
 .drop-link {
-  color: rgb(204, 153, 51);
+  color: black;
   padding: 10px 20px;
   text-decoration: none;
   display: block;

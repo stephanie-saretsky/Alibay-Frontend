@@ -12,6 +12,9 @@
 .image {
   width: 100%;
   text-align: center;
+}
+
+.imageOne {
   margin: 10px;
 }
 
@@ -22,8 +25,9 @@
 
 .flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px;
+  margin: 10px;
 }
 
 hr {
@@ -37,7 +41,7 @@ hr {
   padding: 0%;
 }
 
-p {
+.para {
   padding: 20px;
   font-weight: bold;
   font-size: 20px;

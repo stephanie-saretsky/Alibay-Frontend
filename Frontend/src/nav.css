@@ -8,7 +8,9 @@
   margin-bottom: 10px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.1px solid grey;
+  border-bottom: 0.1px solid rgb(204, 153, 51);
+  height: 60px;
+  color: rgb(204, 153, 51);
 }
 
 .bar-items {
@@ -17,7 +19,7 @@
 
 .nav-button {
   text-decoration: none;
-  color: black;
+  color: rgb(204, 153, 51);
   font-size: 16px;
 }
 
@@ -42,7 +44,7 @@
 }
 
 .cart-link {
-  border-left: 1px solid grey;
+  border-left: 1px solid rgb(204, 153, 51);
   padding-left: 30px;
   padding-right: 25px;
 }
@@ -59,7 +61,7 @@
   margin-top: 0px;
   font-size: 16px;
   cursor: pointer;
-  color: black;
+  color: rgb(204, 153, 51);
 }
 
 .dropdown {
@@ -74,7 +76,7 @@
   border-radius: 2px;
   font-size: 16px;
   cursor: pointer;
-  color: black;
+  color: rgb(204, 153, 51);
 }
 
 .dropdown-content {
@@ -86,7 +88,7 @@
 }
 
 .drop-link {
-  color: black;
+  color: rgb(204, 153, 51);
   padding: 10px 20px;
   text-decoration: none;
   display: block;
@@ -98,5 +100,5 @@
 }
 
 .drop-link:hover {
-  background-color: #999933;
+  background-color: rgb(204, 153, 51, 0.2);
 }

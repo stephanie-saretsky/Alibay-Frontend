@@ -45,7 +45,7 @@ body {
 
 .main-button:hover,
 .main-button:focus {
-  outline: 1px solid rgb(9, 9, 9);
+  outline: 1px solid #999933;
   outline-offset: -4px;
   background: #050505;
 }
@@ -108,6 +108,7 @@ body {
 .item-buttons {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .button {

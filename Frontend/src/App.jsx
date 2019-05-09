@@ -25,6 +25,7 @@ class UnconnectedApp extends Component {
     this.state = {
       particularItem: {},
       particularReviews: [],
+      particularReviewsSeller: [],
       particularSeller: {},
       sellerTea: [],
       sellerCoffee: []
@@ -185,7 +186,7 @@ class UnconnectedApp extends Component {
           if (this.state.particularSeller.id !== body.seller.id) {
             this.setState({
               particularSeller: body.seller,
-              particularReviews: body.reviews,
+              particularReviewsSeller: body.reviews,
               sellerCoffee: body.coffeeItems,
               sellerTea: body.teaItems
             });
@@ -197,7 +198,7 @@ class UnconnectedApp extends Component {
     return (
       <Seller
         seller={this.state.particularSeller}
-        reviews={this.state.particularReviews}
+        reviews={this.state.particularReviewsSeller}
         tea={this.state.sellerTea}
         coffee={this.state.sellerCoffee}
       />

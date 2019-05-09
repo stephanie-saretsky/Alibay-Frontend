@@ -46,92 +46,54 @@ class UnconnectedApp extends Component {
       });
   };
 
-  renderItem = () => {
-    return (
-      <div>
-        <AddItem />
-      </div>
-    );
-  };
+  renderItem = () => <AddItem />;
 
   renderReviewItem = params => {
     console.log("Parameters=>", params);
     return (
-      <div>
-        <AddReview
-          itemId={params.location.state.itemId}
-          name={params.location.state.name}
-        />
-      </div>
+      <AddReview
+        itemId={params.location.state.itemId}
+        name={params.location.state.name}
+      />
     );
   };
 
   renderAddReviewSeller = params => {
     console.log("Parameters=>", params);
     return (
-      <div>
-        <AddReviewSeller
-          sellerId={params.location.state.sellerId}
-          name={params.location.state.name}
-        />
-      </div>
+      <AddReviewSeller
+        sellerId={params.location.state.sellerId}
+        name={params.location.state.name}
+      />
     );
   };
 
   renderCart = () => {
-    return (
-      <div>
-        <Cart />
-      </div>
-    );
+    return <Cart />;
   };
 
   renderSignup = () => {
     if (this.props.login) {
-      return (
-        <div>
-          <Main />
-        </div>
-      );
+      return <Main />;
     } else {
-      return (
-        <div>
-          <Signup />
-        </div>
-      );
+      return <Signup />;
     }
   };
 
   renderLogin = () => {
     if (this.props.login) {
-      return (
-        <div>
-          <Main />
-        </div>
-      );
+      return <Main />;
     }
-    return (
-      <div>
-        <Login />
-      </div>
-    );
+    return <Login />;
   };
 
   coffee = () => {
-    return (
-      <div>
-        <Coffee />
-      </div>
-    );
+    return <Coffee />;
   };
 
   tea = () => {
     console.log("tea page");
-    return (
-      <div>
-        <Tea />
-      </div>
-    );
+    return <Tea />;
   };
 
   teaDetails = routerData => {
@@ -162,12 +124,10 @@ class UnconnectedApp extends Component {
       });
 
     return (
-      <div>
-        <TeaDetails
-          item={this.state.particularItem}
-          reviews={this.state.particularReviews}
-        />
-      </div>
+      <TeaDetails
+        item={this.state.particularItem}
+        reviews={this.state.particularReviews}
+      />
     );
   };
 
@@ -199,12 +159,10 @@ class UnconnectedApp extends Component {
       });
 
     return (
-      <div>
-        <CoffeeDetails
-          item={this.state.particularItem}
-          reviews={this.state.particularReviews}
-        />
-      </div>
+      <CoffeeDetails
+        item={this.state.particularItem}
+        reviews={this.state.particularReviews}
+      />
     );
   };
 
@@ -237,55 +195,43 @@ class UnconnectedApp extends Component {
       });
 
     return (
-      <div>
-        <Seller
-          seller={this.state.particularSeller}
-          reviews={this.state.particularReviews}
-          tea={this.state.sellerTea}
-          coffee={this.state.sellerCoffee}
-        />
-      </div>
+      <Seller
+        seller={this.state.particularSeller}
+        reviews={this.state.particularReviews}
+        tea={this.state.sellerTea}
+        coffee={this.state.sellerCoffee}
+      />
     );
   };
 
   render = () => {
     return (
-      <div>
-        <BrowserRouter>
-          <NavBar renderLogin={this.renderLogin} />
-          <div className="global">
-            <Route exact={true} path="/cart" render={this.renderCart} />
-            <Route exact={true} path="/add-item" render={this.renderItem} />
-            <Route
-              exact={true}
-              path="/add-review-item"
-              render={this.renderReviewItem}
-            />
-            <Route
-              exact={true}
-              path="/add-review-seller"
-              render={this.renderAddReviewSeller}
-            />
-            <Route exact={true} path="/coffee" render={this.coffee} />
-            <Route exact={true} path="/tea" render={this.tea} />
-            <Route
-              exact={true}
-              path="/seller/:sid"
-              render={this.sellerDetails}
-            />
-            <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
-            <Route
-              exact={true}
-              path="/coffee/:cid"
-              render={this.coffeeDetails}
-            />
-            <Route exact={true} path="/signup" render={this.renderSignup} />
-            <Route exact={true} path="/login" render={this.renderLogin} />
-            <Route exact={true} path="/" render={this.renderLogin} />
-          </div>
-          <Footer />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <NavBar renderLogin={this.renderLogin} />
+        <div className="global">
+          <Route exact={true} path="/cart" render={this.renderCart} />
+          <Route exact={true} path="/add-item" render={this.renderItem} />
+          <Route
+            exact={true}
+            path="/add-review-item"
+            render={this.renderReviewItem}
+          />
+          <Route
+            exact={true}
+            path="/add-review-seller"
+            render={this.renderAddReviewSeller}
+          />
+          <Route exact={true} path="/coffee" render={this.coffee} />
+          <Route exact={true} path="/tea" render={this.tea} />
+          <Route exact={true} path="/seller/:sid" render={this.sellerDetails} />
+          <Route exact={true} path="/tea/:tid" render={this.teaDetails} />
+          <Route exact={true} path="/coffee/:cid" render={this.coffeeDetails} />
+          <Route exact={true} path="/signup" render={this.renderSignup} />
+          <Route exact={true} path="/login" render={this.renderLogin} />
+          <Route exact={true} path="/" render={this.renderLogin} />
+        </div>
+        <Footer />
+      </BrowserRouter>
     );
   };
 }

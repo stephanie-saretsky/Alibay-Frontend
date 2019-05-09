@@ -52,7 +52,7 @@ class CoffeeDetails extends Component {
             </p>
           </div>
           <br />
-          <div>{"Price: " + this.props.item.price + " $"}</div>
+          <div>{"Price: $" + this.props.item.price + ".00"}</div>
           <br />
           <div className="item-buttons">
             <Link className="button" to={"/seller/" + this.props.item.sellerId}>

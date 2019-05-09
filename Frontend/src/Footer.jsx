@@ -2,20 +2,44 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./css/footer.css";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 class Footer extends Component {
-  onClick = () => {
-    console.log("On clique sur contact");
-  };
+  constructor() {
+    super();
+    this.state = {
+      modalIsOpen: false
+    };
+  }
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
+  afterOpenModal() {
+    this.subtitle.style.color = "#f00";
+  }
 
   render = () => {
     return (
       <footer id="footer" className="flex">
         <div className="para">
           <p>
-            <Link className="link" onClick={this.onClick}>
+            <Link className="link" onClick={this.openModal}>
               Contact
             </Link>
+            <Modal isOpen={this.state.modalIsOpen}>
+              <div>
+                <h2>Hello</h2>
+                <button onClick={this.closeModal}>close</button>
+                <div>I am a modal</div>
+              </div>
+            </Modal>
           </p>
         </div>
         <div className="image">
@@ -40,5 +64,5 @@ class Footer extends Component {
     );
   };
 }
-1;
+
 export default Footer;

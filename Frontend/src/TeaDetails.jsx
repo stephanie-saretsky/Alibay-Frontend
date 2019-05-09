@@ -40,10 +40,10 @@ class TeaDetails extends Component {
   renderRatingTwo = x => {
     let stars = [];
     for (let i = 0; i < x; i++) {
-      stars = stars.concat("★");
+      stars = stars.concat(<img src="/leaf.png" />);
     }
     for (let j = 0; j < 5 - x; j++) {
-      stars = stars.concat("✩");
+      stars = stars.concat(<img src="/leaf black.png" />);
     }
     return stars;
   };
@@ -80,7 +80,7 @@ class TeaDetails extends Component {
             </p>
           </div>
           <br />
-          <div>{"Price: " + this.props.item.price + " $"}</div>
+          <div>{"Price: $" + this.props.item.price + ".00"}</div>
           <br />
           <div className="item-buttons">
             <Link className="button" to={"/seller/" + this.props.item.sellerId}>

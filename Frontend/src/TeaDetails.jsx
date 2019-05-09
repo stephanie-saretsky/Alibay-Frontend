@@ -93,16 +93,12 @@ class TeaDetails extends Component {
           </div>
         </div>
         <div className="reviews">
-          <h3>
-            <u>Reviews</u>
-          </h3>
+          <h3>Reviews</h3>
           {this.props.reviews.length === 0 ? (
-            <div>
-              <h4 style={{ padding: "20px" }}>There are no reviews yet!</h4>
-            </div>
+            <h4 style={{ padding: "20px" }}>There are no reviews yet!</h4>
           ) : (
-            this.props.reviews.map(rev => (
-              <div>
+            <ul>
+              {this.props.reviews.map(rev => (
                 <Review
                   description={rev.review}
                   reviewer={rev.reviewer.name}
@@ -110,9 +106,8 @@ class TeaDetails extends Component {
                   itemId={rev.itemId}
                   rating={rev.rating}
                 />
-                <br />
-              </div>
-            ))
+              ))}
+            </ul>
           )}
           <div>
             <Link

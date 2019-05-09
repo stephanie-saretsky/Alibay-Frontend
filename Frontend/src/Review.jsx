@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./css/main.css";
-import { Link } from "react-router-dom";
+import moment from "moment";
 
 class Review extends Component {
   renderRating = props => {
@@ -16,14 +16,14 @@ class Review extends Component {
 
   render() {
     return (
-      <div>
+      <li className="review">
         <h4>{this.props.reviewer + ": "}</h4>
         <p>
           <span>{this.renderRating(this.props)}</span>
         </p>
-
+        {moment().format("MMMM Do YYYY")}
         <p>{this.props.description}</p>
-      </div>
+      </li>
     );
   }
 }

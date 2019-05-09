@@ -21,7 +21,8 @@ body {
 }
 
 .global {
-  min-height: 90vh;
+  min-height: calc(100vh - 90px);
+  padding: 24px 48px 48px;
 }
 
 .container {
@@ -159,10 +160,25 @@ body {
 }
 
 .reviews {
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  line-height: 20pt;
+  margin: 0 0 0 0;
+  line-height: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 36px auto;
+  padding: 0;
+}
+
+.review {
+  border-bottom: 1px solid #999933;
+  padding-bottom: 14px;
+  padding-top: 14px;
+}
+
+.review:last-child {
+  border: none;
+  margin-bottom: 14px;
 }
 
 .rating {

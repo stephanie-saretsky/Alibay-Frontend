@@ -118,6 +118,7 @@ body {
   min-width: 80px;
   text-align: center;
   padding: 10px;
+  cursor: pointer;
 }
 
 .button:hover {

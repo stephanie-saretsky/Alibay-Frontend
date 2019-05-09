@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import "./main.css";
-import "./search.css";
+import "./css/search.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 let path = "http://localhost:4000/";

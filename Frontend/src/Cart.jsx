@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./cart.css";
+import "./css/cart.css";
 let path = "http://localhost:4000/";
 let stripe = Stripe("pk_test_o0jp2CyctV96lKqFAIdFE4i0008Y2G9odT");
 

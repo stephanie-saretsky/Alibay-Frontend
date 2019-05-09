@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "./login-signup.css";
+import "./css/login-signup.css";
 let path = "http://localhost:4000/";
 
 class UnconnectedSignup extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./main.css";
+import "./css/main.css";
 import { Link } from "react-router-dom";
 
 class Review extends Component {

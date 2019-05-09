@@ -5,6 +5,20 @@ import "./css/footer.css";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    height: "300px",
+    width: "400px",
+    backgroundColor: "white"
+  }
+};
+
 class Footer extends Component {
   constructor() {
     super();
@@ -13,31 +27,43 @@ class Footer extends Component {
     };
   }
 
-  openModal() {
+  openModal = () => {
     this.setState({ modalIsOpen: true });
-  }
+  };
 
-  closeModal() {
+  closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
-
-  afterOpenModal() {
-    this.subtitle.style.color = "#f00";
-  }
+  };
 
   render = () => {
     return (
       <footer id="footer" className="flex">
         <div className="para">
           <p>
-            <Link className="link" onClick={this.openModal}>
+            <a className="link" onClick={this.openModal}>
               Contact
-            </Link>
-            <Modal isOpen={this.state.modalIsOpen}>
-              <div>
-                <h2>Hello</h2>
-                <button onClick={this.closeModal}>close</button>
-                <div>I am a modal</div>
+            </a>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <div className="contact">
+                <h2>Contact</h2>
+                <ul>
+                  <li>
+                    <strong>Adress</strong>: 1155 Metcalfe St, Montreal, Quebec
+                    H3B 2V6
+                  </li>
+                  <li>
+                    <strong>Phone number</strong>: (+1) 538 407 9856
+                  </li>
+                  <li>
+                    <strong>email</strong>: procaffeinating.gmail.com
+                  </li>
+                </ul>
+                <button onClick={this.closeModal}>Close</button>
               </div>
             </Modal>
           </p>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
-import "./main.css";
+import "./css/main.css";
 import swal from "sweetalert";
 let path = "http://localhost:4000/";
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link, BrowserRouter } from "react-router-dom";
-import "./main.css";
-import "./footer.css";
+import "./css/main.css";
+import "./css/footer.css";
 import Login from "./Login.jsx";
 import { connect } from "react-redux";
 import Signup from "./Signup.jsx";

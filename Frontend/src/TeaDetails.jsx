@@ -29,6 +29,8 @@ class TeaDetails extends Component {
             text: "Your tea was added to your cart!",
             icon: "success",
             button: "Keep Shopping"
+          }).then(function() {
+            window.location = "/tea";
           });
         }
       })

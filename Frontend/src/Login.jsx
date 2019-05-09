@@ -70,12 +70,18 @@ class UnconnectedLogin extends Component {
           />
           <input className="login-button" type="submit" value="Login" />
         </form>
+<<<<<<< HEAD
 
         <p className="register">
           Not registered?{" "}
           <Link className="login-link" to="/signup/">
             Sign up here!{" "}
           </Link>
+=======
+        <p>
+          If you don't have an account yet, please{" "}
+          <Link to="/signup/">sign up here! </Link>
+>>>>>>> 438bd7c285cebec14db98811d831860fb84a0f69
         </p>
       </div>
     );

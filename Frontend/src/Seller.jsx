@@ -51,7 +51,7 @@ class Seller extends Component {
         <hr />
         <br />
         <h3>Seller Reviews: </h3>
-        <ul>
+        <ul className="rating">
           {this.props.reviews.map(rev => (
             <div>
               <p>
@@ -82,7 +82,7 @@ class Seller extends Component {
           {this.props.tea.map(tea => (
             <div>
               <p>
-                <Link to={"/tea/" + tea._id}>
+                <Link className="link" to={"/tea/" + tea._id}>
                   <strong>{tea.name}</strong>
                 </Link>
                 : {tea.description}
@@ -97,7 +97,7 @@ class Seller extends Component {
           {this.props.coffee.map(coffee => (
             <div>
               <p>
-                <Link to={"/coffee/" + coffee._id}>
+                <Link className="link" to={"/coffee/" + coffee._id}>
                   <strong>{coffee.name}</strong>
                 </Link>
                 : {coffee.description}

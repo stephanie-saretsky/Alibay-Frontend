@@ -25,6 +25,8 @@ class Cart extends Component {
           this.setState({ items: body.items });
         }
       });
+
+    //listener, on unmount stop it
   };
 
   checkoutHandler = () => {
@@ -126,10 +128,16 @@ class Cart extends Component {
             </ul>
           </div>
           <div className="checkout">
-            <div className="total">Total: {"$" + total + ".00"}</div>
-            <button className="button" onClick={this.checkoutHandler}>
-              Proceed to Checkout
-            </button>
+            <div
+              className={`checkout-container${
+                this.state.fixit ? " fixed" : ""
+              }`}
+            >
+              <div className="total">Total: {"$" + total + ".00"}</div>
+              <button className="button" onClick={this.checkoutHandler}>
+                Proceed to Checkout
+              </button>
+            </div>
           </div>
         </div>
       );

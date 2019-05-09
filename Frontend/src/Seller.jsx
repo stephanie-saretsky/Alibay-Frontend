@@ -7,10 +7,10 @@ class Seller extends Component {
   renderRating = props => {
     let stars = [];
     for (let i = 0; i < props.rating; i++) {
-      stars = stars.concat("★");
+      stars = stars.concat(<img src="/leaf.png" />);
     }
     for (let j = 0; j < 5 - props.rating; j++) {
-      stars = stars.concat("✩");
+      stars = stars.concat(<img src="/leaf black.png" />);
     }
     return stars;
   };
@@ -18,10 +18,10 @@ class Seller extends Component {
   renderRatingTwo = x => {
     let stars = [];
     for (let i = 0; i < x; i++) {
-      stars = stars.concat("★");
+      stars = stars.concat(<img src="/leaf.png" />);
     }
     for (let j = 0; j < 5 - x; j++) {
-      stars = stars.concat("✩");
+      stars = stars.concat(<img src="/leaf black.png" />);
     }
     return stars;
   };

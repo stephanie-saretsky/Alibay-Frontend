@@ -6,8 +6,8 @@ import "./footer.css";
 class Footer extends Component {
   render = () => {
     return (
-      <footer>
-        <section id="footer">
+      <footer id="footer">
+        <section>
           <div className="image">
             <img src="/logo.png" height="40px" />
             <hr />

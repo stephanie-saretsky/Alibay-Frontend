@@ -4,11 +4,19 @@ import { connect } from "react-redux";
 import "./footer.css";
 
 class Footer extends Component {
+  onClick = () => {
+    console.log("On clique sur contact");
+  };
+
   render = () => {
     return (
       <footer id="footer" className="flex">
-        <div>
-          <p className="para">Contact</p>
+        <div className="para">
+          <p>
+            <Link className="link" onClick={this.onClick}>
+              Contact
+            </Link>
+          </p>
         </div>
         <div className="image">
           <img className="imageOne" src="/logo.png" height="50px" />

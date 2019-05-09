@@ -19,6 +19,11 @@
   padding: 0;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
 hr {
   width: 10%;
   height: 0.5px;

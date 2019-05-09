@@ -20,6 +20,7 @@ class Footer extends Component {
             >
               <img src={"/facebook.png"} height="20px" />
             </a>
+            {"   "}
             <a href={"http://twitter.com/RishiTea"} target={"_blank"}>
               <img src={"/twitter.png"} height="20px" />
             </a>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/main.css";
+import "./css/seller.css";
 import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 
@@ -43,69 +44,70 @@ class Seller extends Component {
   render() {
     console.log("PROPS=>", this.props);
     return (
-      <div className="seller-card">
-        <h2>{this.props.seller.username + " "}</h2>
-        <p>
-          <span>{this.renderRatingTwo(this.renderAverage())}</span>
-        </p>
-        <hr />
-        <br />
-        <h3>Seller Reviews: </h3>
-        <ul className="rating">
-          {this.props.reviews.map(rev => (
-            <div>
-              <p>
-                <span>{this.renderRating(rev)}</span>
+      <div>
+        <div className="seller-card">
+          <h2>{this.props.seller.username + " "}</h2>
+          <p className="border-seller">
+            <span>{this.renderRatingTwo(this.renderAverage())}</span>
+          </p>
+          {/* line under seller SCOTT */}
+          <h3>Currently on sale by this seller:</h3>
+          <h4 className="sell-title">Teas</h4>
+          <ul>
+            {this.props.tea.map(tea => (
+              <div>
+                <p>
+                  <Link className="link" to={"/tea/" + tea._id}>
+                    <strong>{tea.name}</strong>
+                  </Link>
+                  : {tea.description}
+                </p>
                 <br />
-                <strong>{rev.reviewer.name}</strong>: {rev.review}
-              </p>
-              <br />
-            </div>
-          ))}
-        </ul>
-        <Link
-          to={{
-            pathname: "/add-review-seller",
-            state: {
-              sellerId: this.props.seller.id,
-              name: this.props.seller.username
-            }
-          }}
-          className="button"
-        >
-          <b>Add a review</b>
-        </Link>
-        <br />
-        <h3>Currently on sale by this seller:</h3>
-        <h4>Teas</h4>
-        <ul>
-          {this.props.tea.map(tea => (
-            <div>
-              <p>
-                <Link className="link" to={"/tea/" + tea._id}>
-                  <strong>{tea.name}</strong>
-                </Link>
-                : {tea.description}
-              </p>
-              <br />
-            </div>
-          ))}
-        </ul>
-        <br />
-        <h4>Coffees</h4>
-        <ul>
-          {this.props.coffee.map(coffee => (
-            <div>
-              <p>
-                <Link className="link" to={"/coffee/" + coffee._id}>
-                  <strong>{coffee.name}</strong>
-                </Link>
-                : {coffee.description}
-              </p>
-              <br />
-            </div>
-          ))}
-        </ul>
+              </div>
+            ))}
+          </ul>
+          <h4 className="sell-title">Coffees</h4>
+          <ul>
+            {this.props.coffee.map(coffee => (
+              <div>
+                <p>
+                  <Link className="link" to={"/coffee/" + coffee._id}>
+                    <strong>{coffee.name}</strong>
+                  </Link>
+                  : {coffee.description}
+                </p>
+                <br />
+              </div>
+            ))}
+          </ul>
+        </div>
+        <div className="reviews">
+          <h3 className="review-title">Seller Reviews: </h3>
+          <ul className="rating">
+            {this.props.reviews.map(rev => (
+              <div>
+                <p>
+                  <span>{this.renderRating(rev)}</span>
+                  <br />
+                  <strong>{rev.reviewer.name}</strong>: {rev.review}
+                </p>
+                <br />
+              </div>
+            ))}
+          </ul>
+          <Link
+            to={{
+              pathname: "/add-review-seller",
+              state: {
+                sellerId: this.props.seller.id,
+                name: this.props.seller.username
+              }
+            }}
+            className="button"
+          >
+            <b>Add a review</b>
+          </Link>
+        </div>
       </div>
     );
   }

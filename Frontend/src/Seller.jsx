@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./css/main.css";
 import "./css/seller.css";
 import { Link } from "react-router-dom";
-import Review from "./Review.jsx";
+import moment from "moment";
 
 class Seller extends Component {
   renderRating = props => {
@@ -82,31 +82,37 @@ class Seller extends Component {
           </ul>
         </div>
         <div className="reviews">
-          <h3 className="review-title">Seller Reviews: </h3>
-          <ul className="rating">
-            {this.props.reviews.map(rev => (
-              <div>
-                <p>
-                  <span>{this.renderRating(rev)}</span>
-                  <br />
-                  <strong>{rev.reviewer.name}</strong>: {rev.review}
+          <h3>Seller Reviews: </h3>
+          {this.props.reviews.length === 0 ? (
+            <h4 style={{ padding: "20px" }}>There are no reviews yet!</h4>
+          ) : (
+            <li>
+              {this.props.reviews.map(rev => (
+                <p className="review">
+                  <h4>{rev.reviewer.name}</h4>
+                  <p>
+                    <span>{this.renderRating(rev)}</span>
+                  </p>
+                  {moment().format("MMMM Do YYYY")}
+                  <p>{rev.review}</p>
                 </p>
-                <br />
-              </div>
-            ))}
-          </ul>
-          <Link
-            to={{
-              pathname: "/add-review-seller",
-              state: {
-                sellerId: this.props.seller.id,
-                name: this.props.seller.username
-              }
-            }}
-            className="button"
-          >
-            <b>Add a review</b>
-          </Link>
+              ))}
+            </li>
+          )}
+          <div>
+            <Link
+              to={{
+                pathname: "/add-review-seller",
+                state: {
+                  sellerId: this.props.seller.id,
+                  name: this.props.seller.username
+                }
+              }}
+              className="button"
+            >
+              Add a review
+            </Link>
+          </div>
         </div>
       </div>
     );

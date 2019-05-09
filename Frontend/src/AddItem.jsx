@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
-import "./additem.css";
+import "./css/additem.css";
 let path = "http://localhost:4000/";
 
 class UnconnectedAddItem extends Component {

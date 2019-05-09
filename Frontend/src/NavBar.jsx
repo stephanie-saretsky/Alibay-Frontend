@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "./nav.css";
+import "./css/nav.css";
 import { withRouter } from "react-router-dom";
 let path = "http://localhost:4000/";
 

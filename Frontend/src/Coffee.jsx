@@ -67,7 +67,6 @@ class unconnectedCoffee extends Component {
               placeholder="Search for coffee"
             />
             <br />
-            <input className="searchButton" type="submit" value="Search" />
           </form>
         </div>
         <ul className="list-item-container">

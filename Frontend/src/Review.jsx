@@ -8,6 +8,9 @@ class Review extends Component {
     for (let i = 0; i < props.rating; i++) {
       stars = stars.concat("★");
     }
+    for (let j = 0; j < 5 - props.rating; j++) {
+      stars = stars.concat("✩");
+    }
     return stars;
   };
 

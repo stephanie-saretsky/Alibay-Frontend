@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./main.css";
+// import "./main.css";
+import "./search.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 let path = "http://localhost:4000/";
@@ -69,7 +70,6 @@ class unconnectedTea extends Component {
                 placeholder="Search for tea"
               />
               <br />
-              <input className="searchButton" type="submit" value="Search" />
             </form>
           </div>
         </div>

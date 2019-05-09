@@ -85,40 +85,52 @@ class Cart extends Component {
   render = () => {
     let optionalEmpty = "";
     if (this.state.items.length === 0) {
-      optionalEmpty = <div>You have no items in your shopping cart</div>;
+      optionalEmpty = (
+        <div className="cart">You have no items in your shopping cart</div>
+      );
     }
-    return (
-      <div className="cart">
-        <div className="cart-items">
-          {optionalEmpty}
-          <ul>
-            {this.state.items.map(item => {
-              return (
-                <li>
-                  <div className="item">
-                    <img src={item.image} height="100px" />
-                    <div>
-                      <h3 className="name">{item.name}</h3>
-                      <p>{"$" + item.price + ".00"}</p>
-                      <button
-                        onClick={() => {
-                          this.removeItem(item._id);
-                        }}
-                      >
-                        Remove from Cart
-                      </button>
+    let total = 0;
+    this.state.items.map(item => {
+      total = total + parseInt(item.price);
+    });
+    if (total !== 0) {
+      optionalEmpty = (
+        <div className="cart">
+          <div className="cart-items">
+            <ul>
+              {this.state.items.map(item => {
+                return (
+                  <li>
+                    <div className="item-cart">
+                      <img src={item.image} height="100px" />
+                      <div className="cart-text">
+                        <h3 className="name">{item.name}</h3>
+                        <p>{"$" + item.price + ".00"}</p>
+                        <button
+                          className="button"
+                          onClick={() => {
+                            this.removeItem(item._id);
+                          }}
+                        >
+                          Remove from Cart
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="checkout">
+            <div className="total">Total: {"$" + total + ".00"}</div>
+            <button className="button" onClick={this.checkoutHandler}>
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
-        <div>
-          <button onClick={this.checkoutHandler}>Checkout</button>
-        </div>
-      </div>
-    );
+      );
+    }
+    return <div>{optionalEmpty}</div>;
   };
 }
 

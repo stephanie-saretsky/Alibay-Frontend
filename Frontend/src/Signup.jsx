@@ -64,12 +64,14 @@ class UnconnectedSignup extends Component {
             type="text"
             placeholder="new username"
             onChange={this.handleUsername}
+            value={this.state.username}
           />
           <input
             className="login-inputs"
             type="password"
             placeholder="new password"
             onChange={this.handlePassword}
+            value={this.state.password}
           />
           <input className="login-button" type="submit" value="Sign Up" />
         </form>

@@ -77,13 +77,15 @@ class TeaDetails extends Component {
           <br />
           <div>{"Price: " + this.props.item.price + " $"}</div>
           <br />
-          <div>
-            <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
+          <div className="item-buttons">
+            <Link className="button" to={"/seller/" + this.props.item.sellerId}>
+              Seller
+            </Link>
+            <br />
+            <button className="button" onClick={this.addToCart}>
+              Add To Cart
+            </button>
           </div>
-          <br />
-          <button className="addToCartButton" onClick={this.addToCart}>
-            Add To Cart
-          </button>
         </div>
         <div className="reviews">
           <h3>
@@ -110,7 +112,7 @@ class TeaDetails extends Component {
                   name: this.props.item.name
                 }
               }}
-              className="nav-button"
+              className="button"
             >
               Add a review
             </Link>

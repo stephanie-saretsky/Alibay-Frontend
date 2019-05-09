@@ -52,11 +52,15 @@ class CoffeeDetails extends Component {
           <br />
           <div>{"Price: " + this.props.item.price + " $"}</div>
           <br />
-          <Link to={"/seller/" + this.props.item.sellerId}>Seller</Link>
-          <br />
-          <button className="addToCartButton" onClick={this.addToCart}>
-            Add To Cart
-          </button>
+          <div className="item-buttons">
+            <Link className="button" to={"/seller/" + this.props.item.sellerId}>
+              Seller
+            </Link>
+            <br />
+            <button className="button" onClick={this.addToCart}>
+              Add To Cart
+            </button>
+          </div>
         </div>
         <div className="reviews">
           <h3>Reviews:</h3>
@@ -72,6 +76,7 @@ class CoffeeDetails extends Component {
               <br />
             </div>
           ))}
+          <br />
           <div>
             <Link
               to={{
@@ -81,7 +86,7 @@ class CoffeeDetails extends Component {
                   name: this.props.item.name
                 }
               }}
-              className="nav-button"
+              className="button"
             >
               Add a review
             </Link>

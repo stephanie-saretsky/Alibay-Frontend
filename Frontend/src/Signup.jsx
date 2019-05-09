@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import "./login-signup.css";
 let path = "http://localhost:4000/";
 
 class UnconnectedSignup extends Component {
@@ -50,17 +51,27 @@ class UnconnectedSignup extends Component {
 
   render = () => {
     return (
-      <div className="form-box">
-        <h2> Sign up</h2>
-        <form onSubmit={this.handleSubmit}>
-          Username:
-          <input type="text" onChange={this.handleUsername} />
-          Password:
-          <input type="text" onChange={this.handlePassword} />
-          <input type="submit" />
+      <div className="login-signup-form">
+        <form className="login-inputs-container" onSubmit={this.handleSubmit}>
+          <input
+            className="login-inputs"
+            type="text"
+            placeholder="username"
+            onChange={this.handleUsername}
+          />
+          <input
+            className="login-inputs"
+            type="password"
+            placeholder="password"
+            onChange={this.handlePassword}
+          />
+          <input className="login-button" type="submit" />
         </form>
-        <p>
-          If you already have an account, <Link to="/login">log in here!</Link>
+        <p className="register">
+          Already registered?{" "}
+          <Link className="login-link" to="/login">
+            Log in here!
+          </Link>
         </p>
       </div>
     );

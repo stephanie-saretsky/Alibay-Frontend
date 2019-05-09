@@ -33,7 +33,7 @@ class UnconnectedApp extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:4000/login-check", {
+    fetch("http://159.89.112.34:4000/login-check", {
       credentials: "include"
     })
       .then(responseHeader => {

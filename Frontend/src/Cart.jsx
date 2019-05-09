@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "./css/cart.css";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 let stripe = Stripe("pk_test_o0jp2CyctV96lKqFAIdFE4i0008Y2G9odT");
 
 class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      items: []
+      items: [],
+      fixit: false
     };
   }
   componentDidMount = () => {
-    console.log("cart rendering");
     fetch(path + "cart", {
       method: "GET",
       credentials: "include"
@@ -26,7 +26,20 @@ class Cart extends Component {
         }
       });
 
-    //listener, on unmount stop it
+    window.addEventListener("scroll", this.handleScroll);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScroll);
+  };
+
+  handleScroll = () => {
+    if (window.scrollY > 200) {
+      this.setState({ fixit: true });
+    }
+    if (window.scrollY < 200) {
+      this.setState({ fixit: false });
+    }
   };
 
   checkoutHandler = () => {
@@ -53,7 +66,6 @@ class Cart extends Component {
   };
 
   removeItem = id => {
-    console.log(id);
     let data = new FormData();
     data.append("itemId", id);
     fetch(path + "remove-item", {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import "./css/additem.css";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 
 class UnconnectedAddItem extends Component {
   constructor(props) {

@@ -44,6 +44,8 @@
 .input-add {
   height: 20px;
   margin: 8px;
+  font-size: 14px;
+  padding-left: 5px;
 }
 
 .add-item-button {
@@ -73,6 +75,8 @@
 
 .text-add {
   min-width: 440px;
+  font-size: 14px;
+  padding-left: 5px;
 }
 
 .add-button-container {

@@ -17,7 +17,7 @@ import Cart from "./Cart.jsx";
 import AddReview from "./AddReview.jsx";
 import AddReviewSeller from "./AddReviewSeller.jsx";
 import Footer from "./Footer.jsx";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 
 class UnconnectedApp extends Component {
   constructor() {

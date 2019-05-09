@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Review from "./Review.jsx";
 import "./css/main.css";
 import swal from "sweetalert";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 
 class TeaDetails extends Component {
   addToCart = () => {

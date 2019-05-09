@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./css/main.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 
 class unconnectedCoffee extends Component {
   constructor() {

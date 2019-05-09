@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./css/login-signup.css";
-let path = "http://localhost:4000/";
+let path = "http://159.89.112.34:4000/";
 
 class UnconnectedLogin extends Component {
   constructor() {

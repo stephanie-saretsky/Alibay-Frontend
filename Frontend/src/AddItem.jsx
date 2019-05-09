@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
+import "./additem.css";
 let path = "http://localhost:4000/";
 
 class UnconnectedAddItem extends Component {
@@ -94,56 +95,85 @@ class UnconnectedAddItem extends Component {
   };
 
   render = () => {
-    console.log("TYPE=>", this.props.type);
     return (
-      <div className="form-card">
-        <h2>
-          <u>Add {this.state.type}</u>
-        </h2>
-        <form onSubmit={this.handleSubmit}>
-          <select name="Choice" onChange={this.handleChange}>
-            <option value="tea">Tea</option>
-            <option value="coffee">Coffee</option>
-          </select>
-          <p>Name of the Item: </p>
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChangeName}
-            required
-          />
-          <p>Price: </p>
-          <input
-            type="number"
-            min="0"
-            max="100000000"
-            name="price"
-            onChange={this.handleChangePrice}
-            required
-          />
-          <p>Description: </p>
-          <textarea
-            rows="4"
-            cols="50"
-            name="textarea"
-            value={this.state.desc}
-            onChange={this.handleChangeDesc}
-            required
-          />
-          <p>Image</p>
-          <input type="file" onChange={this.handleFile} required />
-          <p>Quantity:</p>
-          <input
-            type="number"
-            min="0"
-            max="100000000"
-            name="quantity"
-            onChange={this.handleChangeQuantity}
-            required
-          />
-          <p />
-          <input type="submit" value="Add" />
-        </form>
+      <div className="add-item-card">
+        <h2>Add New Item</h2>
+        <div className="add-body">
+          <form onSubmit={this.handleSubmit}>
+            Tea or Coffee?
+            <br />
+            <select
+              className="selector"
+              name="Choice"
+              onChange={this.handleChange}
+            >
+              <option value="tea">Tea</option>
+              <option value="coffee">Coffee</option>
+            </select>
+            <div className="flex-add">
+              <p>Name of the Item: </p>
+              <input
+                className="input-add"
+                type="text"
+                value={this.state.name}
+                onChange={this.handleChangeName}
+                required
+              />
+            </div>
+            <div className="flex-add">
+              <p>Price: </p>
+              <input
+                className="input-add"
+                type="number"
+                min="0"
+                max="100000000"
+                name="price"
+                onChange={this.handleChangePrice}
+                required
+              />
+            </div>
+            <div className="desc-add">
+              <p>Description: </p>
+              <textarea
+                className="text-add"
+                rows="4"
+                cols="50"
+                name="textarea"
+                value={this.state.desc}
+                onChange={this.handleChangeDesc}
+                required
+              />
+            </div>
+            <div className="flex-add">
+              <p className="image-p">Image:</p>
+              <input
+                className="add-image"
+                type="file"
+                onChange={this.handleFile}
+                required
+              />
+            </div>
+            <div className="flex-add">
+              <p>Quantity:</p>
+              <input
+                className="input-add"
+                type="number"
+                min="0"
+                max="100000000"
+                name="quantity"
+                onChange={this.handleChangeQuantity}
+                required
+              />
+            </div>
+            <div className="add-button-container">
+              <input
+                className="add-item-button"
+                type="submit"
+                value="Add Item"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     );
   };

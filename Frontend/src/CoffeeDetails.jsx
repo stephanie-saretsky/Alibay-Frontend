@@ -29,6 +29,8 @@ class CoffeeDetails extends Component {
             text: "Your coffee was added to your cart!",
             icon: "success",
             button: "Keep Shopping"
+          }).then(function() {
+            window.location = "/coffee";
           });
         }
       })

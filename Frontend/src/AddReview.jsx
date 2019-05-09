@@ -48,6 +48,8 @@ class UnconnectedAddReview extends Component {
             text: "Our sellers appreciate your thoughts on their items!",
             icon: "success",
             button: "Keep Shopping"
+          }).then(function() {
+            window.location = "/";
           });
           this.setState({ desc: "" });
           return;

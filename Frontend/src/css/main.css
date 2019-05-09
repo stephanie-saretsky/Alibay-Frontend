@@ -159,7 +159,9 @@ body {
 }
 
 .reviews {
-  margin: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   line-height: 20pt;
 }
 

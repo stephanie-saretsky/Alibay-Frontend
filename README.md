@@ -1,3 +1,9 @@
-Alibay was the first full-stack project at DecodeMTL. We created Procaffeinating, an online marketplace for tea and coffee. Users can log in, search items, add/remove from cart, and check out with Stripe. They can add reviews for both items and sellers.
+Alibay is a coffee and tea marketplace created using Javascript technologies.
+
+Features
+<ul>
+  <li>Users are able to add items to sell and purchase items using Stripe.</li>
+  <li>Users are able to add reviews for both items and sellers.</li>
+  <li>Users are able to use a search bar to find specific items with key words.</li>
 
 [See project on YouTube](https://youtu.be/tdSHEKQ1oIQ)
